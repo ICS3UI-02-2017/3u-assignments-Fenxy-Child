@@ -61,7 +61,8 @@ public class RobotExample {
         hodori.putThing();
         hodori.move();
         
-        
+        //move once again
+        hodori.move();
         
     }
 }
