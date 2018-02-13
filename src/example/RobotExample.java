@@ -64,5 +64,8 @@ public class RobotExample {
         //move once again
         hodori.move();
         
+        //turn the robot to the right
+        hodori.turnRight();
+        
     }
 }
