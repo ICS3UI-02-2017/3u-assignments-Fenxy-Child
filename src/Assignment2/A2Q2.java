@@ -62,6 +62,6 @@ public class A2Q2 {
             karel.move();
         }else if(karel.canPickThing()){
             karel.turnLeft();
-        }
+        }else{karel.turnLeft();}
     }
 }
