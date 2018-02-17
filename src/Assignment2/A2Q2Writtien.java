@@ -20,17 +20,5 @@ public class A2Q2Writtien {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        //create a city
-        City seoul = new City();
-        
-        //create a robot
-        RobotSE karel= new RobotSE(seoul,1,5,Direction.EAST);
-        
-        while(karel.getAvenue()!=0 || karel.getStreet()!=0){
-            karel.move();
-        if(karel.getAvenue()==0){
-            karel.turnRight();
-        }
-        }
     }
 }
