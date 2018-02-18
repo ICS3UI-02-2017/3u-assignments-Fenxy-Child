@@ -6,6 +6,7 @@ package Assignment2;
 
 import becker.robots.City;
 import becker.robots.Direction;
+import becker.robots.IPredicate;
 import becker.robots.RobotSE;
 import becker.robots.Wall;
 
@@ -51,9 +52,9 @@ public class A2Q4 {
         new Wall(castle, 2, 3, Direction.NORTH);
     
         //create a guard
-        RobotSE guard = new RobotSE(castle, 0,0, Direction.EAST);
+        RobotSE guard = new RobotSE(castle, 0,1, Direction.EAST);
             
-        //
+        //robot moves
             
-    }
+}
 }
