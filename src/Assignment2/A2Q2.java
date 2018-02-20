@@ -24,7 +24,7 @@ public class A2Q2 {
         // TODO code application logic here
         
         //create city
-        City seoul=new City();
+        City seoul = new City();
         
         //create a robot
         RobotSE karel = new RobotSE(seoul,2,0,Direction.EAST);
@@ -48,7 +48,7 @@ public class A2Q2 {
         new Thing(seoul,2,8);
         
         //karel jumps hurdles
-        while(!karel.canPickThing()){
+    while(!karel.canPickThing()){
         if(!karel.frontIsClear()){
             karel.turnLeft();
             karel.move();
