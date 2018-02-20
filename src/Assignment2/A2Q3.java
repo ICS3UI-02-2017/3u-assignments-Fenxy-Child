@@ -27,16 +27,16 @@ public class A2Q3 {
         RobotSE karel= new RobotSE(seoul,1,5,Direction.EAST);
         
         while(karel.getAvenue()!=0 || karel.getStreet()!=0){
-        if(karel.getStreet()>0){
-            karel.turnLeft();
-            karel.move();
-        }else if(karel.getAvenue()<0||karel.getAvenue()>0){
-            karel.turnLeft();
-            karel.move(5);
-        }else if(karel.getAvenue()==0){
+        if(karel.getAvenue()==0){
             karel.turnRight();
+            karel.move();
         }else if(karel.getStreet()==0){
             karel.turnLeft();
+            karel.move();
+        }else if(karel.isFacingWest()){
+            karel.move();
+        }else if(karel.isFacingEast()){
+            karel.turnRight(2);
         }
         }
     }
