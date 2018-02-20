@@ -52,9 +52,28 @@ public class A2Q4 {
         new Wall(castle, 2, 3, Direction.NORTH);
     
         //create a guard
-        RobotSE guard = new RobotSE(castle, 0,1, Direction.EAST);
+        RobotSE guard = new RobotSE(castle, 0,0, Direction.EAST);
             
         //robot moves
-            
+        while(guard.getAvenue()<=5&&guard.getStreet()<=5){
+            guard.move(2);
+            guard.turnRight();
+            guard.move();
+            guard.turnLeft();
+            guard.move();
+            guard.turnLeft();
+            guard.move();
+            guard.turnRight();
+            guard.move(2);
+        if(guard.getAvenue()==5){
+            guard.turnRight();
+        }else if(guard.getStreet()==5){
+            guard.turnRight();
+        }else if(guard.getAvenue()==0){
+            guard.turnRight();
+        }else if(guard.getStreet()==0){
+            guard.turnRight();
+        }
+        }
 }
 }
