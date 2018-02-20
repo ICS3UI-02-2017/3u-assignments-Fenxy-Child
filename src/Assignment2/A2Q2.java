@@ -48,8 +48,8 @@ public class A2Q2 {
         new Thing(seoul,2,8);
         
         //karel jumps hurdles
-        
-        while(!karel.frontIsClear()){
+        while(!karel.canPickThing()){
+        if(!karel.frontIsClear()){
             karel.turnLeft();
             karel.move();
             karel.turnRight();
@@ -57,11 +57,12 @@ public class A2Q2 {
             karel.turnRight();
             karel.move();
             karel.turnLeft();
-        }
-        if(karel.isBesideThing(IPredicate.aWall)){
-            karel.move();
         }else if(karel.canPickThing()){
-            karel.turnLeft();
-        }else{karel.turnLeft();}
+            karel.turnRight();
+        }else if(karel.frontIsClear()){
+            karel.move();
+        }
+        }
     }
-}
+    }
+
