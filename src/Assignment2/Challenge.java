@@ -32,6 +32,7 @@ public class Challenge {
         RobotSE tina = new RobotSE(seoul, 0,2,Direction.SOUTH);
         
         //create snows(things)
+        new Thing(seoul,1,2);        
         new Thing(seoul,0,1);
         new Thing(seoul,0,3);
         new Thing(seoul,0,4);
@@ -139,21 +140,7 @@ public class Challenge {
         tina.setLabel("T");
         
         //tina shovel the snows
-        while(tina.getStreet()<9){
-        if(tina.canPickThing()){
-            tina.pickThing();
-        }else if(tina.getStreet()==1||tina.getStreet()==4||tina.getStreet()==7){
-            tina.turnLeft();
-        }else if(tina.getStreet()==2||tina.getStreet()==8){
-            tina.turnRight();
-        }else if(!tina.frontIsClear()){
-            tina.turnRight();
-        }else if(tina.frontIsClear()){
-            tina.move();
-        }else if(tina.getAvenue()==2){
-            tina.putAllThings();
-        }
-        }
+        while(tina.getStreet()<9)
         
         //karel shovel the snows
         while(karel.frontIsClear()){
