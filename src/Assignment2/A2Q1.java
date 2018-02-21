@@ -41,7 +41,7 @@ public class A2Q1 {
         
         hodori.move();
         
-        //pick things until 7 in the bag\
+        //pick things until 7 in the bag
         while(hodori.countThingsInBackpack()<7){
             hodori.pickThing();
             hodori.move();
