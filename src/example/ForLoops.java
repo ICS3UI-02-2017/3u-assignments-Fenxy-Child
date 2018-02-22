@@ -66,5 +66,14 @@ public class ForLoops {
        int remainder = 5 % 2;
        int quotient = 5 / 2;
        
+       if(hodori.frontIsClear()){
+           if(hodori.canPickThing()){
+               hodori.move();
+           }
+       }
+       
+       if(hodori.frontIsClear() && hodori.canPickThing()){
+           hodori.move();
+       }
     }
 }

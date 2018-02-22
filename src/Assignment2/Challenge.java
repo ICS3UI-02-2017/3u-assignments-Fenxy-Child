@@ -140,7 +140,8 @@ public class Challenge {
         tina.setLabel("T");
         
         //tina shovel the snows
-        while(tina.getStreet()<9)
+        while(tina.getStreet()<9){
+        }
         
         //karel shovel the snows
         while(karel.frontIsClear()){

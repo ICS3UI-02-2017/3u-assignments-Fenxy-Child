@@ -67,5 +67,10 @@ public class RobotExample {
         //turn the robot to the right
         hodori.turnRight();
         
+        //short
+        //int
+        //long
+        //char
+        //boolean
     }
 }
