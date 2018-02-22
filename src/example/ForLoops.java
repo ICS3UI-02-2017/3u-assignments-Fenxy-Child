@@ -75,5 +75,8 @@ public class ForLoops {
        if(hodori.frontIsClear() && hodori.canPickThing()){
            hodori.move();
        }
+       if(hodori.frontIsClear() || hodori.canPickThing()){
+           hodori.move();
+       }
     }
 }
