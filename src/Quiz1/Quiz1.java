@@ -46,7 +46,7 @@ public class Quiz1 {
         new Thing(seoul,2,3);
         new Thing(seoul,1,4);
         
-        //karel pick all things on each stairs and reach the highest point of the stairs
+        //karel pick all things on each stairs and reach top of the stairs
         karel.move();
         karel.pickThing();
         karel.turnLeft();
