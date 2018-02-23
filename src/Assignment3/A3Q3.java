@@ -24,6 +24,9 @@ public class A3Q3 {
         //new robot
         RobotSE karel = new RobotSE(seoul, 1,1,Direction.EAST, 20);
         
+        //city shows how many things there
+        seoul.showThingCounts(true);
+        
         //karel put all the seeds on 4 rows
         for (int count = 0; count < 20; count++) {
             karel.putThing();
