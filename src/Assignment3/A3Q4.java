@@ -58,7 +58,18 @@ public class A3Q4 {
         new Wall(seoul,2,5,Direction.EAST);
         new Wall(seoul,4,5,Direction.EAST);
         new Wall(seoul,5,5,Direction.EAST);
+      
+        //karel repeat move around the squares
+        for (int count = 0; count < 4; count++) {
+            karel.move(3);
+            karel.turnLeft();
+            karel.move(3);
+            karel.turnLeft();
+            karel.move(3);
+            karel.turnLeft();
+            karel.move(3);
         
+    }
         
     }
 }
