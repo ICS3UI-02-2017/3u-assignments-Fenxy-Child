@@ -21,55 +21,72 @@ public class A3Q4 {
     public static void main(String[] args) {
         //create a city
         City seoul = new City();
-        
+
         //new robot
-        RobotSE karel = new RobotSE(seoul,3,3,Direction.SOUTH);
-        
+        RobotSE karel = new RobotSE(seoul, 3, 3, Direction.SOUTH);
+
         //Create 4 squares
-        new Wall(seoul,1,1,Direction.NORTH);
-        new Wall(seoul,1,2,Direction.NORTH);
-        new Wall(seoul,4,1,Direction.NORTH);
-        new Wall(seoul,4,2,Direction.NORTH);
-        new Wall(seoul,1,4,Direction.NORTH);
-        new Wall(seoul,1,5,Direction.NORTH);
-        new Wall(seoul,4,4,Direction.NORTH);
-        new Wall(seoul,4,5,Direction.NORTH);
-        new Wall(seoul,1,1,Direction.WEST);
-        new Wall(seoul,2,1,Direction.WEST);
-        new Wall(seoul,4,1,Direction.WEST);
-        new Wall(seoul,5,1,Direction.WEST);
-        new Wall(seoul,1,4,Direction.WEST);
-        new Wall(seoul,2,4,Direction.WEST);
-        new Wall(seoul,4,4,Direction.WEST);
-        new Wall(seoul,5,4,Direction.WEST);
-        new Wall(seoul,2,1,Direction.SOUTH);
-        new Wall(seoul,2,2,Direction.SOUTH);
-        new Wall(seoul,5,1,Direction.SOUTH);
-        new Wall(seoul,5,2,Direction.SOUTH);
-        new Wall(seoul,2,4,Direction.SOUTH);
-        new Wall(seoul,2,5,Direction.SOUTH);
-        new Wall(seoul,5,4,Direction.SOUTH);
-        new Wall(seoul,5,5,Direction.SOUTH);
-        new Wall(seoul,1,2,Direction.EAST);
-        new Wall(seoul,2,2,Direction.EAST);
-        new Wall(seoul,4,2,Direction.EAST);
-        new Wall(seoul,5,2,Direction.EAST);
-        new Wall(seoul,1,5,Direction.EAST);
-        new Wall(seoul,2,5,Direction.EAST);
-        new Wall(seoul,4,5,Direction.EAST);
-        new Wall(seoul,5,5,Direction.EAST);
-      
+        new Wall(seoul, 1, 1, Direction.NORTH);
+        new Wall(seoul, 1, 2, Direction.NORTH);
+        new Wall(seoul, 4, 1, Direction.NORTH);
+        new Wall(seoul, 4, 2, Direction.NORTH);
+        new Wall(seoul, 1, 4, Direction.NORTH);
+        new Wall(seoul, 1, 5, Direction.NORTH);
+        new Wall(seoul, 4, 4, Direction.NORTH);
+        new Wall(seoul, 4, 5, Direction.NORTH);
+        new Wall(seoul, 1, 1, Direction.WEST);
+        new Wall(seoul, 2, 1, Direction.WEST);
+        new Wall(seoul, 4, 1, Direction.WEST);
+        new Wall(seoul, 5, 1, Direction.WEST);
+        new Wall(seoul, 1, 4, Direction.WEST);
+        new Wall(seoul, 2, 4, Direction.WEST);
+        new Wall(seoul, 4, 4, Direction.WEST);
+        new Wall(seoul, 5, 4, Direction.WEST);
+        new Wall(seoul, 2, 1, Direction.SOUTH);
+        new Wall(seoul, 2, 2, Direction.SOUTH);
+        new Wall(seoul, 5, 1, Direction.SOUTH);
+        new Wall(seoul, 5, 2, Direction.SOUTH);
+        new Wall(seoul, 2, 4, Direction.SOUTH);
+        new Wall(seoul, 2, 5, Direction.SOUTH);
+        new Wall(seoul, 5, 4, Direction.SOUTH);
+        new Wall(seoul, 5, 5, Direction.SOUTH);
+        new Wall(seoul, 1, 2, Direction.EAST);
+        new Wall(seoul, 2, 2, Direction.EAST);
+        new Wall(seoul, 4, 2, Direction.EAST);
+        new Wall(seoul, 5, 2, Direction.EAST);
+        new Wall(seoul, 1, 5, Direction.EAST);
+        new Wall(seoul, 2, 5, Direction.EAST);
+        new Wall(seoul, 4, 5, Direction.EAST);
+        new Wall(seoul, 5, 5, Direction.EAST);
+
         //karel repeat move around the squares
-        for (int count = 0; count < 4; count++) {
+        for (int count = 0; count < 3; count++) {
             karel.move(3);
             karel.turnLeft();
+        }
+        if (karel.getStreet() == 3) {
+            karel.move(3);
+        }
+        for (int i = 3; i < 6; i++) {
             karel.move(3);
             karel.turnLeft();
+            if (karel.getAvenue() == 3) {
+                karel.move(3);
+            }
+        }
+        for (int i = 6; i < 9; i++) {
             karel.move(3);
             karel.turnLeft();
+            if (karel.getStreet() == 3) {
+                karel.move(3);
+            }
+        }
+        for (int cont = 9; cont < 12; cont++) {
             karel.move(3);
-        
-    }
-        
+            karel.turnLeft();
+            if (karel.getAvenue() == 3) {
+                karel.move(3);
+            }
+        }
     }
 }
