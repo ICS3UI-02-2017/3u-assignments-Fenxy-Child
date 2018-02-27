@@ -59,34 +59,22 @@ public class A3Q4 {
         new Wall(seoul, 4, 5, Direction.EAST);
         new Wall(seoul, 5, 5, Direction.EAST);
 
-        //karel repeat move around the squares
+        //karel move around the first square
         for (int count = 0; count < 3; count++) {
             karel.move(3);
             karel.turnLeft();
         }
-        if (karel.getStreet() == 3) {
-            karel.move(3);
-        }
-        for (int i = 3; i < 6; i++) {
+        
+        //karel moves around other squares
+        for (int i = 0; i < 3; i++) {
+            karel.move(6);
+            karel.turnLeft();
             karel.move(3);
             karel.turnLeft();
-            if (karel.getAvenue() == 3) {
-                karel.move(3);
-            }
-        }
-        for (int i = 6; i < 9; i++) {
             karel.move(3);
-            karel.turnLeft();
-            if (karel.getStreet() == 3) {
-                karel.move(3);
-            }
+            karel.turnLeft();   
         }
-        for (int cont = 9; cont < 12; cont++) {
-            karel.move(3);
-            karel.turnLeft();
-            if (karel.getAvenue() == 3) {
-                karel.move(3);
-            }
-        }
+        //karel moves back to the original point
+        karel.move(3);
     }
 }
