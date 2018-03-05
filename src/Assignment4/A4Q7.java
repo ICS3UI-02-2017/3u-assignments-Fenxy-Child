@@ -20,13 +20,13 @@ public class A4Q7 {
         Scanner input = new Scanner(System.in);
         //dice,starting points,current, and squares
         int dice = input.nextInt();
-        int starting = 1;
-        int square1 = dice + starting;
-        int square2 = dice + square1;
-        int current = dice + square2;
-        // loops for the game
-        while(current < 100){
-            System.out.println("Enter sum of dice");
+        int current = dice + dice;
+        //loops for the game
+        while(dice<=0||dice>12){
+            System.out.println("Try again.");
+        }
+        while(dice>=1&&dice<=12){
+            
         }
     }
 }
