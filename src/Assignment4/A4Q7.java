@@ -20,7 +20,7 @@ public class A4Q7 {
         Scanner input = new Scanner(System.in);
         //
         System.out.println("enter sum of dices.");
-        //dice,starting points,current, and squares
+        //dice
         int dice = input.nextInt();
         //loops for the game
         if(dice<2||dice>12){
