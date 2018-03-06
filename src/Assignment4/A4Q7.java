@@ -18,14 +18,15 @@ public class A4Q7 {
     public static void main(String[] args) {
         //use a scanner to read info
         Scanner input = new Scanner(System.in);
+        //
+        System.out.println("enter sum of dices.");
         //dice,starting points,current, and squares
         int dice = input.nextInt();
-        int current = dice + dice;
         //loops for the game
-        while(dice<=0||dice>12){
-            System.out.println("Try again.");
+        if(dice<2||dice>12){
+            System.out.println("You quit.");
         }
-        while(dice>=1&&dice<=12){
+        while(dice>=2&&dice<=12){
             
         }
     }
