@@ -18,16 +18,34 @@ public class A4Q7 {
     public static void main(String[] args) {
         //use a scanner to read info
         Scanner input = new Scanner(System.in);
-        //
+        //ask to enter sum of dices
         System.out.println("enter sum of dices.");
-        //dice
+        //dice and current location
         int dice = input.nextInt();
+        int current = dice + 1;
         //loops for the game
-        if(dice<2||dice>12){
+        while(current<100){
+        if(dice>=2&&dice<=12){
+                System.out.println("You are now on square " + current);
+                System.out.println("enter sum of dices.");
+            if(current == 9){
+                current = 34;
+            }else if(current ==40){
+                current = 64;
+            }else if(current ==67){
+                current = 86;
+            }else if(current ==54){
+                current = 19;
+            }else if(current ==90){
+                current = 48;
+            }else if(current ==99){
+                current = 77;
+            }
+            }
+        }while(current == 100){
+                System.out.println("you win!");
+        }if(dice<2||dice>12){
             System.out.println("You quit.");
-        }
-        while(dice>=2&&dice<=12){
-            
         }
     }
 }
