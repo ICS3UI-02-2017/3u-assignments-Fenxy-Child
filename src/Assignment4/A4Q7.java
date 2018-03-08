@@ -27,7 +27,6 @@ public class A4Q7 {
             System.out.println("enter sum of dices.");
             //dice and current location
             int dice = input.nextInt();
-            
             current = dice + current;
             if (dice < 2 || dice > 12) {
                     System.out.println("You quit.");}
@@ -48,7 +47,7 @@ public class A4Q7 {
                     System.out.println("you win!");
                 }System.out.println("You are now on square " + current);
             }
-        }
+            }
         }
         }
     
