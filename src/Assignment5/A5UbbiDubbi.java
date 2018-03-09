@@ -4,6 +4,8 @@
  */
 package Assignment5;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Constants;
+
 /**
  *
  * @author choij2116
@@ -107,7 +109,9 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
     }//GEN-LAST:event_englishTxtFActionPerformed
 
     private void ubbiDubbiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubbiDubbiBtnActionPerformed
-        // TODO add your handling code here:
+        // Translate English to ubbi dubbi]
+        String english= englishTxtF.getText();
+        String letter = ".*\\.(a|e|i|o|u)";
     }//GEN-LAST:event_ubbiDubbiBtnActionPerformed
 
     private void englishBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_englishBtnActionPerformed
