@@ -94,10 +94,10 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ubbiDubbiBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                     .addComponent(englishBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(ubbidubbiTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ubbidubbiTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -111,11 +111,12 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
     private void ubbiDubbiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubbiDubbiBtnActionPerformed
         // Translate English to ubbi dubbi]
         String english= englishTxtF.getText();
-        String letter = ".*\\.(a|e|i|o|u)";
+        
     }//GEN-LAST:event_ubbiDubbiBtnActionPerformed
 
     private void englishBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_englishBtnActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_englishBtnActionPerformed
 
     /**
