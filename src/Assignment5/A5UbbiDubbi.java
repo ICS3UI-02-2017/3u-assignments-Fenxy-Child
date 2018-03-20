@@ -33,7 +33,6 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
         englishTxtF = new javax.swing.JTextField();
         ubbidubbiTxtF = new javax.swing.JTextField();
         ubbiDubbiBtn = new javax.swing.JButton();
-        englishBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,17 +46,16 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
             }
         });
 
+        ubbidubbiTxtF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubbidubbiTxtFActionPerformed(evt);
+            }
+        });
+
         ubbiDubbiBtn.setText("Ubbi Dubbi");
         ubbiDubbiBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ubbiDubbiBtnActionPerformed(evt);
-            }
-        });
-
-        englishBtn.setText("English");
-        englishBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                englishBtnActionPerformed(evt);
             }
         });
 
@@ -69,36 +67,32 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ubbidubbiTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(englishTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(englishTxtF, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                            .addComponent(ubbidubbiTxtF)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(ubbiDubbiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90)
-                        .addComponent(englishBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                        .addGap(207, 207, 207)
+                        .addComponent(ubbiDubbiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(englishTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(englishTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ubbiDubbiBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(englishBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ubbiDubbiBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(ubbidubbiTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(ubbidubbiTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51))
         );
 
         pack();
@@ -109,15 +103,30 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
     }//GEN-LAST:event_englishTxtFActionPerformed
 
     private void ubbiDubbiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubbiDubbiBtnActionPerformed
-        // Translate English to ubbi dubbi]
+        // Translate English to ubbi dubbi
         String english= englishTxtF.getText();
-        
+        english = english.toLowerCase();
+            // walk down the word looking for the vowel
+            int length = english.length();
+            // use for loop to go through the character 
+            for (int i = 0; i < length; i++) {
+                 if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){
+                    // i is the position of the vowel
+                        String start = english.substring(0, i);
+                        String end = english.substring(i);
+                String transWord = start + "ub"+ end;
+                ubbidubbiTxtF.setText(transWord);
+            }else if(english.startsWith("a")||english.startsWith("e")||english.startsWith("i")||english.startsWith("o")||english.startsWith("u")){
+            //stick ay on the end
+                String transWord = "ub" + english;
+                ubbidubbiTxtF.setText(transWord);
+        }
+        }
     }//GEN-LAST:event_ubbiDubbiBtnActionPerformed
 
-    private void englishBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_englishBtnActionPerformed
+    private void ubbidubbiTxtFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubbidubbiTxtFActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_englishBtnActionPerformed
+    }//GEN-LAST:event_ubbidubbiTxtFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,7 +163,6 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton englishBtn;
     private javax.swing.JTextField englishTxtF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
