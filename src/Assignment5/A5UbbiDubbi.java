@@ -114,10 +114,12 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
                     // i is the position of the vowel
                         String start = english.substring(0, i);
                         String end = english.substring(i);
-                String transWord = start + "ub"+ end;
+            //print out the result (translation)
+                String transWord = start + "ub" + end;
                 ubbidubbiTxtF.setText(transWord);
-            }else if(english.startsWith("a")||english.startsWith("e")||english.startsWith("i")||english.startsWith("o")||english.startsWith("u")){
-            //stick ay on the end
+            }
+                if(english.startsWith("a")||english.startsWith("e")||english.startsWith("i")||english.startsWith("o")||english.startsWith("u")){
+            //print out the result (translation)
                 String transWord = "ub" + english;
                 ubbidubbiTxtF.setText(transWord);
         }
