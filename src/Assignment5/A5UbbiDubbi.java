@@ -120,10 +120,24 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
             }
                 if(english.startsWith("a")||english.startsWith("e")||english.startsWith("i")||english.startsWith("o")||english.startsWith("u")){
             //print out the result (translation)
-                String transWord = "ub" + english;
+                String transWord = "ub";
                 ubbidubbiTxtF.setText(transWord);
-        }
-        }
+                if(true){
+                    if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){
+                    // i is the position of the vowel
+                        String start = english.substring(0, i);
+                        String end = english.substring(i);
+                    //print out the result (translation)
+                        String result = start + "ub" + end;
+                        ubbidubbiTxtF.setText(transWord + result);
+                
+                    }else{
+                        String last = transWord + english;
+                        ubbidubbiTxtF.setText(last);
+                    }
+                }
+            }
+        }        
     }//GEN-LAST:event_ubbiDubbiBtnActionPerformed
 
     private void ubbidubbiTxtFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubbidubbiTxtFActionPerformed
