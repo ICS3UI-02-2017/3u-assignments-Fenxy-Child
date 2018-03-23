@@ -33,6 +33,7 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
         englishTxtF = new javax.swing.JTextField();
         ubbidubbiTxtF = new javax.swing.JTextField();
         ubbiDubbiBtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +60,8 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setText("Ubbi Dubbi Translator");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,22 +80,28 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(207, 207, 207)
                         .addComponent(ubbiDubbiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 175, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(176, 176, 176))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel3)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(englishTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
                 .addComponent(ubbiDubbiBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(ubbidubbiTxtF, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -108,12 +117,14 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
         english = english.toLowerCase();
             // walk down the word looking for the vowel
             int length = english.length();
-            // use for loop to go through the character 
+            // use for loop to go through the character
+            String w = "";
             for (int i = 0; i < length; i++) {
                  if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){
                     // i is the position of the vowel
                         String start = english.substring(0, i);
                         String end = english.substring(i);
+                        w = w + "ub";
             //print out the result (translation)
                 String transWord = start + "ub" + end;
                 ubbidubbiTxtF.setText(transWord);
@@ -182,6 +193,7 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
     private javax.swing.JTextField englishTxtF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton ubbiDubbiBtn;
     private javax.swing.JTextField ubbidubbiTxtF;
     // End of variables declaration//GEN-END:variables
