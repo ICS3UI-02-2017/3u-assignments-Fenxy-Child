@@ -141,7 +141,6 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
                     //print out the result (translation)
                         String result = start + "ub" + end;
                         ubbidubbiTxtF.setText(transWord + result);
-                
                     }else{
                         String last = transWord + english;
                         ubbidubbiTxtF.setText(last);
