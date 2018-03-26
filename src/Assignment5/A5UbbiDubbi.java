@@ -126,7 +126,7 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
                         String end = english.substring(i);
                         w = w + "ub";
             //print out the result (translation)
-                String transWord = start + "ub" + end;
+                String transWord = start + w + end;
                 ubbidubbiTxtF.setText(transWord);
             }
                 if(english.startsWith("a")||english.startsWith("e")||english.startsWith("i")||english.startsWith("o")||english.startsWith("u")){
