@@ -124,9 +124,14 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
                     // i is the position of the vowel
                         String start = english.substring(0, i);
                         String end = english.substring(i);
-                        w = w + "ub";
             //print out the result (translation)
-                String transWord = start + w + end;
+                        if(english.charAt(i-1) == 'a'||english.charAt(i-1) == 'e'||english.charAt(i-1) == 'i'||english.charAt(i-1) == 'o'||english.charAt(i-1) == 'u'){
+                            String transWord = start + w + end;
+                            ubbidubbiTxtF.setText(transWord);
+                        }
+                        
+                String e = english.replace(english,"ub");
+                String transWord = start + e + end;
                 ubbidubbiTxtF.setText(transWord);
             }
                 if(english.startsWith("a")||english.startsWith("e")||english.startsWith("i")||english.startsWith("o")||english.startsWith("u")){
