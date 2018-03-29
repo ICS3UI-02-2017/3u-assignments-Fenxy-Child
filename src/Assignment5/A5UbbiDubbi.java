@@ -120,20 +120,13 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
             // use for loop to go through the character
             String w = "";
             for (int i = 0; i < length; i++) {
-                 if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){
-                    // i is the position of the vowel
-                        String start = english.substring(0, i);
-                        String end = english.substring(i);
-            //print out the result (translation)
-                        if(english.charAt(i-1) == 'a'||english.charAt(i-1) == 'e'||english.charAt(i-1) == 'i'||english.charAt(i-1) == 'o'||english.charAt(i-1) == 'u'){
-                            String transWord = start + w + end;
-                            ubbidubbiTxtF.setText(transWord);
-                        }
-                        
-                String e = english.replace(english,"ub");
-                String transWord = start + e + end;
+                if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){        
+                String e = english.replaceAll("a|e|i|o|u", "ub$0");
+                String transWord = e;
                 ubbidubbiTxtF.setText(transWord);
-            }
+            }if(english.charAt(i-1)=='a'||english.charAt(i-1)=='e'||english.charAt(i-1)=='i'||english.charAt(i-1)=='o'||english.charAt(i-1)=='u'){
+                
+            }    
                 if(english.startsWith("a")||english.startsWith("e")||english.startsWith("i")||english.startsWith("o")||english.startsWith("u")){
             //print out the result (translation)
                 String transWord = "ub";
@@ -141,18 +134,17 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
                 if(true){
                     if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){
                     // i is the position of the vowel
-                        String start = english.substring(0, i);
-                        String end = english.substring(i);
-                    //print out the result (translation)
-                        String result = start + "ub" + end;
-                        ubbidubbiTxtF.setText(transWord + result);
+                        if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){        
+                        String e = english.replaceAll("a|e|i|o|u", "ub$0");
+                        ubbidubbiTxtF.setText(e);
                     }else if(english.charAt(i)!='a'||english.charAt(i)!='e'||english.charAt(i)!='i'||english.charAt(i)!='o'||english.charAt(i)!='u'){
                         String last = transWord + english;
                         ubbidubbiTxtF.setText(last);
                     }
                 }
             }
-        }        
+        }
+        }
     }//GEN-LAST:event_ubbiDubbiBtnActionPerformed
 
     private void ubbidubbiTxtFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubbidubbiTxtFActionPerformed
