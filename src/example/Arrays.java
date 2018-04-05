@@ -21,7 +21,6 @@ public class Arrays {
         
         //make an array to store expenses
         double[] expenses = new double[6];
-        
         // let the user know to get the costs
         System.out.println("Please enter the six costs for prom.");
         //use a for loop for input
