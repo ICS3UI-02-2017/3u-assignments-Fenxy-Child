@@ -123,9 +123,6 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
                 if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){        
                 String e = english.replace("a|e|i|o|u", "ub$0");
                 String transWord = e;
-                if(english.charAt(i-1)=='a'||english.charAt(i-1)=='e'||english.charAt(i-1)=='i'||english.charAt(i-1)=='o'||english.charAt(i-1)=='u'){
-                
-                }
                 ubbidubbiTxtF.setText(transWord);
                 }
                 if(english.startsWith("a")||english.startsWith("e")||english.startsWith("i")||english.startsWith("o")||english.startsWith("u")){
@@ -135,8 +132,10 @@ public class A5UbbiDubbi extends javax.swing.JFrame {
                     if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){
                     // i is the position of the vowel
                         if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){        
-                        String e = english.replace("a|e|i|o|u", "ub$0");
-                        ubbidubbiTxtF.setText(e);
+                        String start = english.substring(0,i);
+                        String end = english.substring(i);
+                        String s = "ub"+start+"ub"+end;
+                        ubbidubbiTxtF.setText(s);
                     }else if(english.charAt(i)!='a'||english.charAt(i)!='e'||english.charAt(i)!='i'||english.charAt(i)!='o'||english.charAt(i)!='u'){
                         String last = transWord + english;
                         ubbidubbiTxtF.setText(last);
