@@ -35,7 +35,6 @@ public class A6Q1 {
             sum = sum + scores;
         }
         double average = sum/students;
-        double result = ((Math.round(average * 100))/100);
-        System.out.println("The class average is " + result);
+        System.out.println("The class average is " + (Math.round(average * 100)/100.0));
     }
 }
