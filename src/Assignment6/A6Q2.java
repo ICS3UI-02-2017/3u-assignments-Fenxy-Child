@@ -20,7 +20,7 @@ public class A6Q2 {
         Scanner input = new Scanner(System.in);
         
         // ask the number of people
-        System.out.println("How many people did you measured?");
+        System.out.println("How many people did you measured their heights?");
         int peop = input.nextInt();
         double[] heights = new double[peop];
         System.out.println("Please enter all of their heights. Please enter in cm.");
