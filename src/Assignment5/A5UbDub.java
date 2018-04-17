@@ -125,13 +125,20 @@ public class A5UbDub extends javax.swing.JFrame {
             }
             // use for loop to go through the character
                 for (int i = 0; i < length; i++) {
+                    if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){        
+                    char e = english.charAt(i);
+                    transWord = transWord + "ub";
+                }else if(english.charAt(i)!='a'||english.charAt(i)!='e'||english.charAt(i)!='i'||english.charAt(i)!='o'||english.charAt(i)!='u'){
+                transWord = transWord + english;
+                }
                     for (int j = 3; j < length; j++) {
                     if(english.charAt(j)=='a'||english.charAt(j)=='e'||english.charAt(j)=='i'||english.charAt(j)=='o'||english.charAt(j)=='u'){        
                     char e = english.charAt(j);
                     if(english.charAt(j-1)=='a'||english.charAt(j-1)=='e'||english.charAt(j-1)=='i'||english.charAt(j-1)=='o'||english.charAt(j-1)=='u'){        
                     if(english.charAt(j-2)=='a'||english.charAt(j-2)=='e'||english.charAt(j-2)=='i'||english.charAt(j-2)=='o'||english.charAt(j-2)=='u'){
                     if(english.charAt(j-3)=='a'||english.charAt(j-3)=='e'||english.charAt(j-3)=='i'||english.charAt(j-3)=='o'||english.charAt(j-3)=='u'){
-                        transWord = transWord+ e;
+                        String a = english.substring(j);
+                        transWord = transWord+ e + a;
                 }
                     }
                     }
@@ -143,21 +150,18 @@ public class A5UbDub extends javax.swing.JFrame {
                     char e = english.charAt(k);
                     if(english.charAt(k-1)=='a'||english.charAt(k-1)=='e'||english.charAt(k-1)=='i'||english.charAt(k-1)=='o'||english.charAt(k-1)=='u'){        
                     if(english.charAt(k-2)=='a'||english.charAt(k-2)=='e'||english.charAt(k-2)=='i'||english.charAt(k-2)=='o'||english.charAt(k-2)=='u'){
-                        transWord = transWord + e;
+                        String a = english.substring(k);
+                        transWord = transWord + e + a;
                 }}} 
                 }
                 for (int h = 1; h < length; h++) {
                     if(english.charAt(h)=='a'||english.charAt(h)=='e'||english.charAt(h)=='i'||english.charAt(h)=='o'||english.charAt(h)=='u'){        
                     char e = english.charAt(h);
                     if(english.charAt(h-1)=='a'||english.charAt(h-1)=='e'||english.charAt(h-1)=='i'||english.charAt(h-1)=='o'||english.charAt(h-1)=='u'){        
-                        transWord = transWord + e;
+                        String a = english.substring(h);
+                        transWord = transWord + e + a;
                 }
                 }
-                }if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){        
-                    char e = english.charAt(i);
-                    transWord = transWord + "ub";
-                }else if(english.charAt(i)!='a'||english.charAt(i)!='e'||english.charAt(i)!='i'||english.charAt(i)!='o'||english.charAt(i)!='u'){
-                transWord = transWord + english;
                 }    
                 break;
                 }ubbidubbiTxtF.setText(transWord);
