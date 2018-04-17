@@ -10,12 +10,12 @@ import com.sun.org.apache.xalan.internal.xsltc.compiler.Constants;
  *
  * @author choij2116
  */
-public class A5UbDub extends javax.swing.JFrame {
+public class A5Ubdubbi extends javax.swing.JFrame {
 
     /**
      * Creates new form A5ubbiDubbi
      */
-    public A5UbDub() {
+    public A5Ubdubbi() {
         initComponents();
     }
 
@@ -188,20 +188,20 @@ public class A5UbDub extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(A5UbDub.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(A5Ubdubbi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(A5UbDub.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(A5Ubdubbi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(A5UbDub.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(A5Ubdubbi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(A5UbDub.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(A5Ubdubbi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new A5UbDub().setVisible(true);
+                new A5Ubdubbi().setVisible(true);
             }
         });
     }
