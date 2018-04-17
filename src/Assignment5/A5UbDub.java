@@ -117,33 +117,50 @@ public class A5UbDub extends javax.swing.JFrame {
         english = english.toLowerCase();
             // walk down the word looking for the vowel
             int length = english.length();
+            //string transword
+            String transWord = "";
+            // add "ub" if it starts with the vowel
+            if(english.startsWith("a")||english.startsWith("e")||english.startsWith("i")||english.startsWith("o")||english.startsWith("u")){
+                transWord = transWord + "ub" + english;
+            }
             // use for loop to go through the character
-            String w = "";
-            for (int i = 0; i < length; i++) {
-                if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){        
-                String e = english.replace("a|e|i|o|u", "ub$0");
-                String transWord = e;
-                ubbidubbiTxtF.setText(transWord);
+                for (int i = 0; i < length; i++) {
+                    for (int j = 3; j < length; j++) {
+                    if(english.charAt(j)=='a'||english.charAt(j)=='e'||english.charAt(j)=='i'||english.charAt(j)=='o'||english.charAt(j)=='u'){        
+                    char e = english.charAt(j);
+                    if(english.charAt(j-1)=='a'||english.charAt(j-1)=='e'||english.charAt(j-1)=='i'||english.charAt(j-1)=='o'||english.charAt(j-1)=='u'){        
+                    if(english.charAt(j-2)=='a'||english.charAt(j-2)=='e'||english.charAt(j-2)=='i'||english.charAt(j-2)=='o'||english.charAt(j-2)=='u'){
+                    if(english.charAt(j-3)=='a'||english.charAt(j-3)=='e'||english.charAt(j-3)=='i'||english.charAt(j-3)=='o'||english.charAt(j-3)=='u'){
+                        transWord = transWord+ e;
                 }
-                if(english.startsWith("a")||english.startsWith("e")||english.startsWith("i")||english.startsWith("o")||english.startsWith("u")){
-            //print out the result (translation)
-                String transWord = "ub" + english;
-                if(true){
-                    if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){
-                    // i is the position of the vowel
-                        if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){        
-                        String start = english.substring(0,i);
-                        String end = english.substring(i);
-                        String s = "ub"+start+"ub"+end;
-                        ubbidubbiTxtF.setText(s);
-                    }else if(english.charAt(i)!='a'||english.charAt(i)!='e'||english.charAt(i)!='i'||english.charAt(i)!='o'||english.charAt(i)!='u'){
-                        String last = transWord + english;
-                        ubbidubbiTxtF.setText(last);
+                    }
                     }
                 }
-            }
-        }
-        }
+                
+                }
+                for (int k = 2; k < length; k++) {
+                   if(english.charAt(k)=='a'||english.charAt(k)=='e'||english.charAt(k)=='i'||english.charAt(k)=='o'||english.charAt(k)=='u'){        
+                    char e = english.charAt(k);
+                    if(english.charAt(k-1)=='a'||english.charAt(k-1)=='e'||english.charAt(k-1)=='i'||english.charAt(k-1)=='o'||english.charAt(k-1)=='u'){        
+                    if(english.charAt(k-2)=='a'||english.charAt(k-2)=='e'||english.charAt(k-2)=='i'||english.charAt(k-2)=='o'||english.charAt(k-2)=='u'){
+                        transWord = transWord + e;
+                }}} 
+                }
+                for (int h = 1; h < length; h++) {
+                    if(english.charAt(h)=='a'||english.charAt(h)=='e'||english.charAt(h)=='i'||english.charAt(h)=='o'||english.charAt(h)=='u'){        
+                    char e = english.charAt(h);
+                    if(english.charAt(h-1)=='a'||english.charAt(h-1)=='e'||english.charAt(h-1)=='i'||english.charAt(h-1)=='o'||english.charAt(h-1)=='u'){        
+                        transWord = transWord + e;
+                }
+                }
+                }if(english.charAt(i)=='a'||english.charAt(i)=='e'||english.charAt(i)=='i'||english.charAt(i)=='o'||english.charAt(i)=='u'){        
+                    char e = english.charAt(i);
+                    transWord = transWord + "ub";
+                }else if(english.charAt(i)!='a'||english.charAt(i)!='e'||english.charAt(i)!='i'||english.charAt(i)!='o'||english.charAt(i)!='u'){
+                transWord = transWord + english;
+                }    
+                break;
+                }ubbidubbiTxtF.setText(transWord);
     }//GEN-LAST:event_ubbiDubbiBtnActionPerformed
 
     private void ubbidubbiTxtFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubbidubbiTxtFActionPerformed
