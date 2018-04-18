@@ -20,13 +20,14 @@ public class A6Q3 {
         Scanner input = new Scanner(System.in);
         
         // ask to enter two integer
-        
         System.out.println("Please type two integers that you want to place in ascending order.");
+        
+        // two integers 
         int A = input.nextInt();
         int C = input.nextInt();
         
         
-        // if statement to place in ascending order
+        // if statement to place in ascending order and print out the result
         if(A>C){
             System.out.println("The integers in ascending order are " + C + " , " + A);
         }else if(A<C||A==C){
