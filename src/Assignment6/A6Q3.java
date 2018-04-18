@@ -22,17 +22,22 @@ public class A6Q3 {
         // ask to enter two integer
         System.out.println("Please type two integers that you want to place in ascending order.");
         
-        // two integers 
-        int A = input.nextInt();
-        int C = input.nextInt();
+        // array
+        int[] integer = new int[2];
+        
+        // set two integers
+        integer[0] = input.nextInt();    
+        integer[1] = input.nextInt();
         
         
-        // if statement to place in ascending order and print out the result
-        if(A>C){
-            System.out.println("The integers in ascending order are " + C + " , " + A);
-        }else if(A<C||A==C){
-            System.out.println("The integers in ascending order are " + A + " , " + C);
+        if(integer[0]>integer[1]){
+            System.out.println(integer[1] + "," + integer[0]); 
+        }else if(integer[0]<integer[1]){
+            System.out.println(integer[0] + "," + integer[1]);
         }
         
+        
     }
-}
+        
+    }
+
