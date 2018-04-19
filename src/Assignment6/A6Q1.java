@@ -28,7 +28,7 @@ public class A6Q1 {
         // ask to type their marks
         System.out.println("Please enter all the marks");
         
-        // use a for loop to create arrays
+        // use a for loop to get scores
         for (int i = 0; i < score.length; i++) {
             score[i] = input.nextDouble();
         }

@@ -27,7 +27,7 @@ public class A6Q2 {
         // ask to enter their heights
         System.out.println("Please enter all of their heights. Please enter in cm.");
         
-        // use a for loop to create arrays
+        // use a for loop to get their heights 
         for (int i = 0; i < heights.length; i++) {
             heights[i] = input.nextDouble();
         }

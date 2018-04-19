@@ -25,24 +25,18 @@ public class A6Q4 {
         //ask to enter their marks
         System.out.println("Please type 10 marks to sort from the lowest to highest mark");
         
-        // set 10 marks 
-        marks[0] = input.nextInt();
-        marks[1] = input.nextInt();
-        marks[2] = input.nextInt();
-        marks[3] = input.nextInt();
-        marks[4] = input.nextInt();
-        marks[5] = input.nextInt();
-        marks[6] = input.nextInt();
-        marks[7] = input.nextInt();
-        marks[8] = input.nextInt();
-        marks[9] = input.nextInt();
         
+        // use a for loop to swap and order from lowest to highest
         for (int i = 0; i < marks.length; i++) {
+            // 
+            marks[i] = input.nextInt();
             if(marks[i]>marks[i+1]){
-                
-                
+                int temp = marks[i];
+                marks[i] = marks[i+1];
+                marks[i+1] = temp;
+            }else if(marks[i]<=marks[i+1]){
+                break;
             }
             }
         }
-        
-    }
+    }   

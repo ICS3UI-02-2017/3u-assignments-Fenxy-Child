@@ -25,14 +25,16 @@ public class A6Q3 {
         // array
         int[] integer = new int[2];
         
-        // set two integers
+        // get two integers
         integer[0] = input.nextInt();    
         integer[1] = input.nextInt();
         
-        
+        // if statement to order in ascending form
         if(integer[0]>integer[1]){
+            // print out in ascending form
             System.out.println(integer[1] + "," + integer[0]); 
         }else if(integer[0]<integer[1]){
+            // print out in ascending form
             System.out.println(integer[0] + "," + integer[1]);
         }
         
