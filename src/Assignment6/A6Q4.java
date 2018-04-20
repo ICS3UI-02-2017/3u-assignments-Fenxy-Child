@@ -28,15 +28,20 @@ public class A6Q4 {
         
         // use a for loop to swap and order from lowest to highest
         for (int i = 0; i < marks.length; i++) {
-            // 
+            // set marks[i]
             marks[i] = input.nextInt();
+            // if statement and swap
             if(marks[i]>marks[i+1]){
                 int temp = marks[i];
                 marks[i] = marks[i+1];
                 marks[i+1] = temp;
             }else if(marks[i]<=marks[i+1]){
-                break;
+                return;
             }
             }
+        // use a for loop to print out in ascending order
+        for (int i = 0; i < marks.length; i++) {
+            System.out.println(marks[i] + " , ");
+        }
         }
     }   
