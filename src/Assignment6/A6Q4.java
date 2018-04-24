@@ -34,8 +34,6 @@ public class A6Q4 {
                 int temp = marks[i];
                 marks[i] = marks[i+1];
                 marks[i+1] = temp;
-            }else if(marks[i]<=marks[i+1]){
-                return;
             }
             }
         // use a for loop to print out in ascending order
