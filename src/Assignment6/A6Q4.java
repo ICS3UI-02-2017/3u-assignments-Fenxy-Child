@@ -29,11 +29,13 @@ public class A6Q4 {
         for (int i = 0; i <= marks.length; i++) {
             // set marks[i]
             marks[i] = input.nextInt();
-            // if statement and swap
-            if(marks[i]>marks[i+1]){
-                int temp = marks[i];
-                marks[i] = marks[i+1];
-                marks[i+1] = temp;
+            for (int j =1 ; j < (n-i); j++){
+                // if statement and swap
+            if(marks[j-1]>marks[j]){
+                int temp = marks[j-1];
+                marks[j-1] = marks[j];
+                marks[j] = temp;
+            }
             }
             }
         // use a for loop to print out in ascending order
