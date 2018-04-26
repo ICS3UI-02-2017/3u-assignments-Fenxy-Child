@@ -4,6 +4,8 @@
  */
 package Assignment6;
 
+import java.util.Scanner;
+
 /**
  *
  * @author choij2116
@@ -30,25 +32,25 @@ public class A6Q5 {
         System.out.println("Please enter all the marks.");
         
         // use a for loop to swap and order from lowest to highest
-        for (int i = 0; i <= marks.length; i++) {
+        for (int i = 0; i <= (marks.length-1); i++) {
             // set marks[i]
             marks[i] = input.nextInt();
-            for (int j =1 ; j < (n-i); j++){
+            for (int j =1 ; j < (marks.length-i); j++){
                 // if statement and swap
             if(marks[j-1]>marks[j]){
-                int temp = marks[j-1];
-                marks[j-1] = marks[j];
-                marks[j] = temp;
+                double temp = marks[j];
+                marks[j] = marks[j-1];
+                marks[j-1] = temp;
             }
             }
             }
         
         // use a for loop to print out in ascending order
         for (int i = 0; i < marks.length; i++) {
-            System.out.println(marks[i] + " , ");
+            System.out.println(marks[i]);
         }
         
-        int a = Math.round(students/2)
-        System.out.println("The median mark is " + marks[a] + ".")
+        int a = Math.round(students/2);
+        System.out.println("The median mark is " + marks[a] + ".");
     }
 }

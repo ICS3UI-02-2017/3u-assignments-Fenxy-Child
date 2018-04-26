@@ -26,10 +26,10 @@ public class A6Q4 {
         System.out.println("Please type 10 marks to sort from the lowest to highest mark");
         
         // use a for loop to swap and order from lowest to highest
-        for (int i = 0; i <= marks.length; i++) {
+        for (int i = 0; i <= (marks.length-1); i++) {
             // set marks[i]
             marks[i] = input.nextInt();
-            for (int j =1 ; j < (n-i); j++){
+            for (int j =1 ; j < (marks.length-i); j++){
                 // if statement and swap
             if(marks[j-1]>marks[j]){
                 int temp = marks[j-1];
