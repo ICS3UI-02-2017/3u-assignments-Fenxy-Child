@@ -4,6 +4,7 @@
  */
 package Assignment6;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -20,27 +21,32 @@ public class A6Q4 {
         Scanner input = new Scanner(System.in);
         
         // create array
-        int [] marks = new int[10];
+        double [] marks = new double[10];
         
         //ask to enter their marks
         System.out.println("Please type 10 marks to sort from the lowest to highest mark");
         
+        
+        // set marks[k] with a for loop
+            for (int k = 0; k < marks.length; k++) {
+                marks[k] = input.nextDouble();
+        }
+            
+            
         // use a for loop to swap and order from lowest to highest
         for (int i = 0; i <= (marks.length-1); i++) {
-            // set marks[i]
-            marks[i] = input.nextInt();
-            for (int j =1 ; j < (marks.length-i); j++){
+            for (int j = (i+1) ; j < (marks.length); j++){
                 // if statement and swap
-            if(marks[j-1]>marks[j]){
-                int temp = marks[j-1];
-                marks[j-1] = marks[j];
+            if(marks[i]>marks[j]){
+                double temp = (int) marks[i];
+                marks[i] = marks[j];
                 marks[j] = temp;
             }
             }
             }
-        // use a for loop to print out in ascending order
-        for (int i = 0; i < marks.length; i++) {
-            System.out.println(marks[i] + " , ");
-        }
+        
+        // print out in ascending order
+
+            System.out.println(Arrays.toString(marks));
         }
     }   

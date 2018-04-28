@@ -31,24 +31,23 @@ public class A6Q5 {
         // ask to type all the marks
         System.out.println("Please enter all the marks.");
         
+        // set marks[k] with a for loop
+            for (int k = 0; k < marks.length; k++) {
+                marks[k] = input.nextInt();
+        }
+            
+            
         // use a for loop to swap and order from lowest to highest
         for (int i = 0; i <= (marks.length-1); i++) {
-            // set marks[i]
-            marks[i] = input.nextInt();
-            for (int j =1 ; j < (marks.length-i); j++){
+            for (int j = (i+1) ; j < (marks.length); j++){
                 // if statement and swap
-            if(marks[j-1]>marks[j]){
-                double temp = marks[j];
-                marks[j] = marks[j-1];
-                marks[j-1] = temp;
+            if(marks[i]>marks[j]){
+                double temp = (int) marks[i];
+                marks[i] = marks[j];
+                marks[j] = temp;
             }
             }
             }
-        
-        // use a for loop to print out in ascending order
-        for (int i = 0; i < marks.length; i++) {
-            System.out.println(marks[i]);
-        }
         
         int a = Math.round(students/2);
         System.out.println("The median mark is " + marks[a] + ".");
