@@ -13,6 +13,13 @@ public class A7Q7 {
     /**
      * @param args the command line arguments
      */
+    
+    public static int firstDigit(int a){
+        
+        return a;
+    }
+    
+    
     public static void main(String[] args) {
         // TODO code application logic here
     }

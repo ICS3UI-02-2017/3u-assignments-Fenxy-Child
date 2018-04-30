@@ -16,12 +16,13 @@ public class A7Q5 {
      * @param args the command line arguments
      */
     
-    public static int chaotic(int n, int a){
-         int randNum = (int)(Math.random()*(n - a + 1))+ a;
-         for (n = 0; n <= randNum; n++) {
-             System.out.println("*");
+    public static void chaotic(int a,int n){
+         for (int i = 0; i < n; i++) {
+            int randNum = (int)(Math.random()*(n - a + 1))+ a;
+            for (int j = 0; j < randNum; j++) {
+                System.out.println("*");
             }
-         return randNum;
+            }
         }
     
     
@@ -30,12 +31,13 @@ public class A7Q5 {
         Scanner input = new Scanner(System.in);
         
         // ask to type the number of asterisks and rows
-        System.out.println("Please enter the number of total asterisks and rows.");
+        System.out.println("Please enter the number of rows.");
         
         // integer
         int d = input.nextInt();
         int b = input.nextInt();
         
+        // run the chaotic method
         chaotic(d, b);
         
     }
