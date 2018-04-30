@@ -16,8 +16,8 @@ public class A7Q5 {
      * @param args the command line arguments
      */
     
-    public static void chaotic(int a,int n){
-         for (int i = 0; i < n; i++) {
+    public static void chaotic(int e, int a,int n){
+         for (int i = 0; i < e; i++) {
             int randNum = (int)(Math.random()*(n - a + 1))+ a;
             for (int j = 0; j < randNum; j++) {
                 System.out.println("*");
@@ -34,11 +34,12 @@ public class A7Q5 {
         System.out.println("Please enter the number of rows.");
         
         // integer
-        int d = input.nextInt();
-        int b = input.nextInt();
+        int c = input.nextInt();
+        int d = 5;
+        int b = 1;
         
         // run the chaotic method
-        chaotic(d, b);
+        chaotic(c, b, d);
         
     }
 }
