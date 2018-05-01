@@ -16,9 +16,12 @@ public class A7Q6 {
      * @param args the command line arguments
      */
     
+    // method to find the last digit of the integer
     public static int lastDigit(int a){
         a = a % 10;
+        // print out 
         System.out.println("The last digit of the integer is " + a);
+        // return 
         return Math.abs(a % 10);
     }
     

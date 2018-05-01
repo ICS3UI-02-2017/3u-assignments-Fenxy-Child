@@ -4,6 +4,8 @@
  */
 package Assignment7;
 
+import java.util.Scanner;
+
 /**
  *
  * @author choij2116
@@ -13,7 +15,32 @@ public class A7Q8 {
     /**
      * @param args the command line arguments
      */
+    
+    public static boolean allDigitOdd(int n){
+        while(n>0){
+            int digit = n % 10;
+            n = n / 10;
+            
+            if(digit % 2 == 0){
+                // all digit are not odd
+                return false;
+            }
+        }
+        // all digit are odd
+        return true;
+    }
+    
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Scanner
+        Scanner input = new Scanner(System.in);
+        
+        // ask to type the integer
+        System.out.println("Please type the integer.");
+        
+        // set integer
+        int a = input.nextInt();
+        
+        
     }
 }
