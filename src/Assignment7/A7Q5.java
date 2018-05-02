@@ -20,8 +20,9 @@ public class A7Q5 {
          for (int i = 0; i < e; i++) {
             int randNum = (int)(Math.random()*(n - a + 1))+ a;
             for (int j = 0; j < randNum; j++) {
-                System.out.println("*");
+                System.out.print("*");
             }
+            System.out.println("");
             }
         }
     
