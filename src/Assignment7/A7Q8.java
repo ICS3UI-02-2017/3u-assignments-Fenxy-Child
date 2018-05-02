@@ -41,6 +41,8 @@ public class A7Q8 {
         // set integer
         int a = input.nextInt();
         
-        
+        // print out true or false that integer has all odd digits 
+        System.out.println("does integer " + a + " have all odd digits?");
+        System.out.println(allDigitOdd(a));
     }
 }
