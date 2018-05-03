@@ -34,9 +34,9 @@ public class A7Q1 {
         double radius = input.nextDouble();
         
         // calculate the area of circle by using circleArea method
-        double a = circleArea(radius);
+        double a = Math.round(circleArea(radius));
         // print out the result
-        System.out.println("The area of a circle with the radius " + radius + " is " + a + " cm^2.");
+        System.out.println("The area of a circle with the radius " + radius + " is approximately " + a + " cm^2.");
         
     }
 }
