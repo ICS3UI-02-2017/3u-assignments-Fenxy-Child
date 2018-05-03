@@ -24,7 +24,7 @@ public class A7Q8 {
             int digit = n % 10;
             // set new n every time by dividing 10
             n = n / 10;
-            // if digits are even
+            // if one or more digits are even
             if(digit % 2 == 0){
                 // all digit are not odd
                 return false;
