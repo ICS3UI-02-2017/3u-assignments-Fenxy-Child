@@ -18,7 +18,9 @@ public class A7Q3 {
     
     // find the factors 
     public static int factors(int a){
+        // print out the factors 
         System.out.println("Factors of " + a + " are ");
+        // using for loops, find the factors of the integer
         for (int i = 1; i <= a; ++i) {
             if(a % i == 0){
                 System.out.println(i);
@@ -33,6 +35,8 @@ public class A7Q3 {
         
         // ask to type the integer
         System.out.println("Please type the integer that is bigger than 1 to find the factors.");
+        
+        // set integer from the input 
         int in = input.nextInt();
         
         // if statement if integer that was typen is equal or smaller than 1
@@ -40,7 +44,7 @@ public class A7Q3 {
             System.out.println("undefined.");
         }
         
-        // find and print out the factors 
+        // using the method factors 
         factors(in);
     }
 }

@@ -18,8 +18,9 @@ public class A7Q1 {
     
     // Find circle area
     public static double circleArea(double r){
+        // calculate the area of the circle
         double area = r*r*Math.PI; 
-        // send back to the area
+        // send back to the double area
         return area;
     }
     
@@ -29,10 +30,12 @@ public class A7Q1 {
         
         // ask to type the radius of the circle
         System.out.println("Please enter the radius of the circle in centimeter.");
+        // double for the radius 
         double radius = input.nextDouble();
         
         // calculate the area of circle by using circleArea method
         double a = circleArea(radius);
+        // print out the result
         System.out.println("The area of a circle with the radius " + radius + " is " + a + " cm^2.");
         
     }

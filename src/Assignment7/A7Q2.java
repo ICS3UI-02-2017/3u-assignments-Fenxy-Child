@@ -18,7 +18,9 @@ public class A7Q2 {
     
     // find the percent of the mark
     public static double examGrade(double a, double b){
+        // calculate the percentage of the mark
         double percent = (a/b)*100;
+        // send back to the double percent
         return percent;
         
     }
@@ -29,11 +31,13 @@ public class A7Q2 {
         
         // ask to type your mark and total mark
         System.out.println("Please enter your mark and the total mark.");
+        // double for your mark and the total mark
         double ur = input.nextDouble();
         double tot = input.nextDouble();
         
         // calculate the percent 
         double result = examGrade(ur, tot);
+        // using the result from method examGrade, print out the grade
         if(result<50){
             System.out.println("Your exam grade is F.");
         }else if(result>=50 && result<60){

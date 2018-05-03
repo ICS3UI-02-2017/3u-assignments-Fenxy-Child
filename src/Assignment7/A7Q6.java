@@ -16,13 +16,13 @@ public class A7Q6 {
      * @param args the command line arguments
      */
     
-    // method to find the last digit of the integer
+    // program to find the last digit of the integer
     public static int lastDigit(int a){
         a = a % 10;
-        // print out 
+        // print out the last digit
         System.out.println("The last digit of the integer is " + a);
-        // return 
-        return Math.abs(a % 10);
+        // return to a 
+        return a;
     }
     
     public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class A7Q6 {
         int d = input.nextInt();
         
         // run the lastDigit method with the integer typed. 
-        lastDigit(d);
+        lastDigit(Math.abs(d));
         
         
     }
