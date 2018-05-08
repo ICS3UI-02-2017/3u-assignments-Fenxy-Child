@@ -115,23 +115,29 @@ public class face extends JComponent implements ActionListener {
         g.fillOval(500,220,40,40);
         
         // nose
-        // color
+        // set color
         g.setColor(Color.PINK);
         // draw nose
         g.drawOval(400, 320, 20, 20);
         g.drawOval(440, 320, 20, 20);
         g.drawOval(380, 300, 100, 60);
         //fill the color
-        g.fillOval(400,320,20,20);
+        g.fillOval(380,300,100,60);
+	// set another color
+        g.setColor(Color.BLACK);
+	// fill the color
+	g.fillOval(400,320,20,20);
         g.fillOval(440,320,20,20);
         
+	// mouth
+	// set color
+	g.setColor(Color.RED);
+	// draw mouth
+	g.drawOval(400,400,80,80);
+	// fill the color
+	g.fillOval(400,400,80,80);
         
-        
-        
-        
-        
-        
-        
+	
         
 		
         // GAME DRAWING ENDS HERE
