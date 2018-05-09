@@ -87,6 +87,12 @@ public class face extends JComponent implements ActionListener {
 
         // GAME DRAWING GOES HERE
         
+	// background color
+	// set color
+	g.setColor(yellow);
+	// fill the color
+	g.fillRect(0,0,WIDTH,HEIGHT);
+	
         // set costom color
         g.setColor(Color.BLACK);
         // shape 
@@ -137,7 +143,34 @@ public class face extends JComponent implements ActionListener {
 	// fill the color
 	g.fillOval(400,400,80,80);
         
-	
+	// teeth
+	// set color
+	g.setColor(Color.WHITE);
+	// draw teeth
+	g.drawRect(440,400,20,20);
+        g.drawRect(460,400,20,20);
+	// fill the color
+        g.fillRect(440,400,20,20);
+        g.fillRect(460,400,20,20);
+        
+        // ears
+	// set color
+        g.setColor(Color.BLACK);
+        // 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
 		
         // GAME DRAWING ENDS HERE
