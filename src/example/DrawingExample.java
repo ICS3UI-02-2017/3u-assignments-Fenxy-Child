@@ -113,7 +113,7 @@ public class DrawingExample extends JComponent implements ActionListener {
         // draw a polygon
         int[] triangleX = {500,600,450};
         int[] triangleY = {400,500,500};
-        // (array of x points, array of y points, 3)
+        // (array of x points, array of y points, # of points)
         g.fillPolygon(triangleX,triangleY,3);
         
         g.setColor(Color.YELLOW);
