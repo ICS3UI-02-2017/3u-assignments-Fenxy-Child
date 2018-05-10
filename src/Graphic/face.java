@@ -40,7 +40,7 @@ public class face extends JComponent implements ActionListener {
     // YOUR GAME VARIABLES WOULD GO HERE
     
     // set the costom colors
-    Color yellow = new Color(251, 206, 177);
+    Color yell = new Color(251, 206, 177);
     Color brown = new Color(76, 38, 0);
 
 
@@ -89,16 +89,66 @@ public class face extends JComponent implements ActionListener {
         
 	// background color
 	// set color
-	g.setColor(yellow);
+	g.setColor(yell);
 	// fill the color
 	g.fillRect(0,0,WIDTH,HEIGHT);
 	
+        //circle
+        //set color
+        g.setColor(Color.BLACK);
+        // set int
+        int l = 120;
+        // draw ovals
+        g.drawOval(300, l, 80, 80);
+        g.drawOval(480, l, 80, 80);
+        // fill ovals
+        g.fillOval(300, l, 80, 80);
+        g.fillOval(480, l, 80, 80);
+        
+        // ears
+        // left
+	// set color
+        g.setColor(Color.BLACK);
+        // draw a polygon
+        // set arrays
+        int[] a = {220,350,215};
+        int[] b = {100,125,240};
+        // (array of a points, array of b points, # of points)
+        g.fillPolygon(a, b, 3);
+        // set color
+        g.setColor(Color.PINK);
+        // draw a polygon
+        // set arrays
+        int[] c = {250,320,245};
+        int[] d = {130,145,225};
+        // (array of c points, array of d points, # of points)
+        g.fillPolygon(c,d,3);
+        
+        // right
+        // set color
+        g.setColor(Color.BLACK);
+        // draw a polygon
+        // set arrays
+        int[] e = {635,500,630};
+        int[] f = {240,125,100};
+        // (array of e points, array of f points, # of points)
+        g.fillPolygon(e,f,3);
+        // set color
+        g.setColor(Color.PINK);
+        // draw a polygon
+        // set arrays
+        int[] h = {605,530,600};
+        int[] i = {225,145,130};
+        // (array of h points, array of i points, # of points)
+        g.fillPolygon(h,i,3);
+        
+        
         // set costom color
         g.setColor(Color.BLACK);
         // shape 
-        g.drawOval(200,100,450,450);
+        g.drawOval(200,100,450,400);
         // fill the color of face
-        g.fillOval(200,100,450,450);
+        g.fillOval(200,100,450,400);
         
         // eyes
         // sclera
@@ -139,40 +189,37 @@ public class face extends JComponent implements ActionListener {
 	// set color
 	g.setColor(Color.RED);
 	// draw mouth
-	g.drawOval(400,400,80,80);
+	g.drawOval(380,397,100,80);
 	// fill the color
-	g.fillOval(400,400,80,80);
+	g.fillOval(380,397,100,80);
         
 	// teeth
 	// set color
-	g.setColor(Color.WHITE);
+	g.setColor(Color.BLACK);
 	// draw teeth
-	g.drawRect(440,400,20,20);
-        g.drawRect(460,400,20,20);
-	// fill the color
-        g.fillRect(440,400,20,20);
-        g.fillRect(460,400,20,20);
+	g.drawRect(410,400,20,20);
+        g.drawRect(431,400,20,20);
+	// set new color
+        g.setColor(Color.WHITE);
+        // fill the color
+        g.fillRect(410,400,20,20);
+        g.fillRect(431,400,20,20);
         
-        // ears
-	// set color
-        g.setColor(Color.BLACK);
-        // 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-		
+        // eyebrows
+        // set color
+        g.setColor(Color.WHITE);
+        // draw a rectangle
+        g.drawRect(300, 160, 260, 20);
+        // fill rect
+        g.fillRect(300, 160, 260, 20);
+                
+               
+                
+                
+                
+                
+                
+	
         // GAME DRAWING ENDS HERE
     }
 
@@ -195,7 +242,7 @@ public class face extends JComponent implements ActionListener {
         // if a mouse button has been pressed down
         @Override
         public void mousePressed(MouseEvent e) {
-
+            
         }
 
         // if a mouse button has been released
