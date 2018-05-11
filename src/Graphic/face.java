@@ -30,7 +30,7 @@ public class face extends JComponent implements ActionListener {
     // sets the framerate and delay for our game
     // this calculates the number of milliseconds per frame
     // you just need to select an approproate framerate
-    int desiredFPS = 60;
+    int desiredFPS = 10;
     int desiredTime = Math.round((1000 / desiredFPS));
     
     // timer used to run the game loop
@@ -42,7 +42,14 @@ public class face extends JComponent implements ActionListener {
     // set the costom colors
     Color yell = new Color(251, 206, 177);
     Color brown = new Color(76, 38, 0);
+    Color x = new Color(255, 180, 223);
+    Color y = new Color(0,0,0);
+    Color z = new Color(0,0,0);
+    Color u = new Color(255,255,255);
+    Color WW = new Color(255,255,255);
 
+    // set int
+    int l = 120;
 
     // GAME VARIABLES END HERE    
 
@@ -93,22 +100,18 @@ public class face extends JComponent implements ActionListener {
 	// fill the color
 	g.fillRect(0,0,WIDTH,HEIGHT);
 	
-        //circle
-        //set color
-        g.setColor(Color.BLACK);
-        // set int
-        int l = 120;
-        // draw ovals
-        g.drawOval(300, l, 80, 80);
-        g.drawOval(480, l, 80, 80);
-        // fill ovals
-        g.fillOval(300, l, 80, 80);
-        g.fillOval(480, l, 80, 80);
+        // pens
+        // set color
+        g.setColor(brown);
+        // create pens
+        g.drawRect(0, 160, WIDTH, 30);
+        g.fillRect(0,160,WIDTH,30);
+        g.drawRect(0,130,20,90);
         
         // ears
         // left
 	// set color
-        g.setColor(Color.BLACK);
+        g.setColor(y);
         // draw a polygon
         // set arrays
         int[] a = {220,350,215};
@@ -116,7 +119,7 @@ public class face extends JComponent implements ActionListener {
         // (array of a points, array of b points, # of points)
         g.fillPolygon(a, b, 3);
         // set color
-        g.setColor(Color.PINK);
+        g.setColor(u);
         // draw a polygon
         // set arrays
         int[] c = {250,320,245};
@@ -126,7 +129,7 @@ public class face extends JComponent implements ActionListener {
         
         // right
         // set color
-        g.setColor(Color.BLACK);
+        g.setColor(y);
         // draw a polygon
         // set arrays
         int[] e = {635,500,630};
@@ -134,7 +137,7 @@ public class face extends JComponent implements ActionListener {
         // (array of e points, array of f points, # of points)
         g.fillPolygon(e,f,3);
         // set color
-        g.setColor(Color.PINK);
+        g.setColor(u);
         // draw a polygon
         // set arrays
         int[] h = {605,530,600};
@@ -144,11 +147,22 @@ public class face extends JComponent implements ActionListener {
         
         
         // set costom color
-        g.setColor(Color.BLACK);
+        g.setColor(y);
         // shape 
         g.drawOval(200,100,450,400);
         // fill the color of face
         g.fillOval(200,100,450,400);
+        
+        // line
+        // set color
+        g.setColor(Color.BLACK);
+        // draw lines
+        int[] q = {220,300};
+        int[] p = {220,240};
+        g.drawPolyline(q, p, 2);
+        int[] v = {380,630};
+        int[] o = {240, 200};
+        g.drawPolyline(v,o,2); 
         
         // eyes
         // sclera
@@ -170,14 +184,24 @@ public class face extends JComponent implements ActionListener {
         g.fillOval(320,220,40,40);
         g.fillOval(500,220,40,40);
         
+        //circle
+        //set color
+        g.setColor(Color.BLACK);
+        // draw ovals
+        g.drawOval(300, l, 80, 80);
+        // fill ovals
+        g.fillOval(300, l, 80, 80);
+        
         // nose
         // set color
         g.setColor(Color.PINK);
         // draw nose
         g.drawOval(400, 320, 20, 20);
         g.drawOval(440, 320, 20, 20);
+        g.setColor(Color.BLACK);
         g.drawOval(380, 300, 100, 60);
         //fill the color
+        g.setColor(Color.pink);
         g.fillOval(380,300,100,60);
 	// set another color
         g.setColor(Color.BLACK);
@@ -207,7 +231,7 @@ public class face extends JComponent implements ActionListener {
         
         // eyebrows
         // set color
-        g.setColor(Color.WHITE);
+        g.setColor(u);
         // draw a rectangle
         g.drawRect(300, 160, 260, 20);
         // fill rect
@@ -233,7 +257,17 @@ public class face extends JComponent implements ActionListener {
     // The main game loop
     // In here is where all the logic for my game will go
     public void gameLoop() {
-        
+        gameTimer.start();
+        if(l<200){
+            l = l + 80;
+            y = x;
+            u = z;
+        }else if(l>=200){
+            l = l-80;
+            y=z;
+            u=WW;
+        }
+
     }
 
     // Used to implement any of the Mouse Actions
