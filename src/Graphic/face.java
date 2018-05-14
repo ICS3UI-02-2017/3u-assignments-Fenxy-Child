@@ -30,7 +30,7 @@ public class face extends JComponent implements ActionListener {
     // sets the framerate and delay for our game
     // this calculates the number of milliseconds per frame
     // you just need to select an approproate framerate
-    int desiredFPS = 10;
+    int desiredFPS = 3;
     int desiredTime = Math.round((1000 / desiredFPS));
     
     // timer used to run the game loop
@@ -106,7 +106,61 @@ public class face extends JComponent implements ActionListener {
         // create pens
         g.drawRect(0, 160, WIDTH, 30);
         g.fillRect(0,160,WIDTH,30);
+        
         g.drawRect(0,130,20,90);
+        g.drawRect(30,130,20,90);
+        g.drawRect(60,130,20,90);
+        g.drawRect(90,130,20,90);
+        g.drawRect(120,130,20,90);
+        g.drawRect(150,130,20,90);
+        g.drawRect(180,130,20,90);
+        g.drawRect(210,130,20,90);
+        g.drawRect(240,130,20,90);
+        g.drawRect(270,130,20,90);
+        g.drawRect(300,130,20,90);
+        g.drawRect(330,130,20,90);
+        g.drawRect(360,130,20,90);
+        g.drawRect(390,130,20,90);
+        g.drawRect(420,130,20,90);
+        g.drawRect(450,130,20,90);
+        g.drawRect(480,130,20,90);
+        g.drawRect(510,130,20,90);
+        g.drawRect(540,130,20,90);
+        g.drawRect(570,130,20,90);
+        g.drawRect(600,130,20,90);
+        g.drawRect(630,130,20,90);
+        g.drawRect(660,130,20,90);
+        g.drawRect(690,130,20,90);
+        g.drawRect(720,130,20,90);
+        g.drawRect(750,130,20,90);
+        g.drawRect(780,130,20,90);
+        // fill rects
+        g.fillRect(0,130,20,90);
+        g.fillRect(30,130,20,90);
+        g.fillRect(60,130,20,90);
+        g.fillRect(90,130,20,90);
+        g.fillRect(120,130,20,90);
+        g.fillRect(150,130,20,90);
+        g.fillRect(180,130,20,90);
+        g.fillRect(210,130,20,90);
+        g.fillRect(240,130,20,90);
+        g.fillRect(270,130,20,90);
+        g.fillRect(300,130,20,90);
+        g.fillRect(330,130,20,90);
+        g.fillRect(360,130,20,90);
+        g.fillRect(420,130,20,90);
+        g.fillRect(450,130,20,90);
+        g.fillRect(480,130,20,90);
+        g.fillRect(510,130,20,90);
+        g.fillRect(540,130,20,90);
+        g.fillRect(570,130,20,90);
+        g.fillRect(600,130,20,90);
+        g.fillRect(630,130,20,90);
+        g.fillRect(660,130,20,90);
+        g.fillRect(690,130,20,90);
+        g.fillRect(720,130,20,90);
+        g.fillRect(750,130,20,90);
+        g.fillRect(780,130,20,90);
         
         // ears
         // left
