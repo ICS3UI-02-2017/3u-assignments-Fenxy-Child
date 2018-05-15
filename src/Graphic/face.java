@@ -30,7 +30,7 @@ public class face extends JComponent implements ActionListener {
     // sets the framerate and delay for our game
     // this calculates the number of milliseconds per frame
     // you just need to select an approproate framerate
-    int desiredFPS = 3;
+    int desiredFPS = 30;
     int desiredTime = Math.round((1000 / desiredFPS));
     
     // timer used to run the game loop
@@ -47,9 +47,22 @@ public class face extends JComponent implements ActionListener {
     Color z = new Color(0,0,0);
     Color u = new Color(255,255,255);
     Color WW = new Color(255,255,255);
+    Color redd = new Color(255,0,0);
+    Color red = new Color(255,0,0);
+    Color newwhite = new Color(255,255,255);
+    Color theblue = new Color(0, 51, 255);
+    Color yel = new Color(251,206,177);
 
     // set int
     int l = 120;
+    int j = 0;
+    
+    // sun
+    int sunX = 100;
+    int sunY = 50;
+
+    boolean moveUp = false;
+    boolean moveDown = false;
 
     // GAME VARIABLES END HERE    
 
@@ -107,60 +120,60 @@ public class face extends JComponent implements ActionListener {
         g.drawRect(0, 160, WIDTH, 30);
         g.fillRect(0,160,WIDTH,30);
         
-        g.drawRect(0,130,20,90);
-        g.drawRect(30,130,20,90);
-        g.drawRect(60,130,20,90);
-        g.drawRect(90,130,20,90);
-        g.drawRect(120,130,20,90);
-        g.drawRect(150,130,20,90);
-        g.drawRect(180,130,20,90);
-        g.drawRect(210,130,20,90);
-        g.drawRect(240,130,20,90);
-        g.drawRect(270,130,20,90);
-        g.drawRect(300,130,20,90);
-        g.drawRect(330,130,20,90);
-        g.drawRect(360,130,20,90);
-        g.drawRect(390,130,20,90);
-        g.drawRect(420,130,20,90);
-        g.drawRect(450,130,20,90);
-        g.drawRect(480,130,20,90);
-        g.drawRect(510,130,20,90);
-        g.drawRect(540,130,20,90);
-        g.drawRect(570,130,20,90);
-        g.drawRect(600,130,20,90);
-        g.drawRect(630,130,20,90);
-        g.drawRect(660,130,20,90);
-        g.drawRect(690,130,20,90);
-        g.drawRect(720,130,20,90);
-        g.drawRect(750,130,20,90);
-        g.drawRect(780,130,20,90);
+        g.drawRect(j,130,20,90);
+        g.drawRect(j+30,130,20,90);
+        g.drawRect(j+60,130,20,90);
+        g.drawRect(j+90,130,20,90);
+        g.drawRect(j+120,130,20,90);
+        g.drawRect(j+150,130,20,90);
+        g.drawRect(j+180,130,20,90);
+        g.drawRect(j+210,130,20,90);
+        g.drawRect(j+240,130,20,90);
+        g.drawRect(j+270,130,20,90);
+        g.drawRect(j+300,130,20,90);
+        g.drawRect(j+330,130,20,90);
+        g.drawRect(j+360,130,20,90);
+        g.drawRect(j+390,130,20,90);
+        g.drawRect(j+420,130,20,90);
+        g.drawRect(j+450,130,20,90);
+        g.drawRect(j+480,130,20,90);
+        g.drawRect(j+510,130,20,90);
+        g.drawRect(j+540,130,20,90);
+        g.drawRect(j+570,130,20,90);
+        g.drawRect(j+600,130,20,90);
+        g.drawRect(j+630,130,20,90);
+        g.drawRect(j+660,130,20,90);
+        g.drawRect(j+690,130,20,90);
+        g.drawRect(j+720,130,20,90);
+        g.drawRect(j+750,130,20,90);
+        g.drawRect(j+780,130,20,90);
         // fill rects
-        g.fillRect(0,130,20,90);
-        g.fillRect(30,130,20,90);
-        g.fillRect(60,130,20,90);
-        g.fillRect(90,130,20,90);
-        g.fillRect(120,130,20,90);
-        g.fillRect(150,130,20,90);
-        g.fillRect(180,130,20,90);
-        g.fillRect(210,130,20,90);
-        g.fillRect(240,130,20,90);
-        g.fillRect(270,130,20,90);
-        g.fillRect(300,130,20,90);
-        g.fillRect(330,130,20,90);
-        g.fillRect(360,130,20,90);
-        g.fillRect(420,130,20,90);
-        g.fillRect(450,130,20,90);
-        g.fillRect(480,130,20,90);
-        g.fillRect(510,130,20,90);
-        g.fillRect(540,130,20,90);
-        g.fillRect(570,130,20,90);
-        g.fillRect(600,130,20,90);
-        g.fillRect(630,130,20,90);
-        g.fillRect(660,130,20,90);
-        g.fillRect(690,130,20,90);
-        g.fillRect(720,130,20,90);
-        g.fillRect(750,130,20,90);
-        g.fillRect(780,130,20,90);
+        g.fillRect(j,130,20,90);
+        g.fillRect(j+30,130,20,90);
+        g.fillRect(j+60,130,20,90);
+        g.fillRect(j+90,130,20,90);
+        g.fillRect(j+120,130,20,90);
+        g.fillRect(j+150,130,20,90);
+        g.fillRect(j+180,130,20,90);
+        g.fillRect(j+210,130,20,90);
+        g.fillRect(j+240,130,20,90);
+        g.fillRect(j+270,130,20,90);
+        g.fillRect(j+300,130,20,90);
+        g.fillRect(j+330,130,20,90);
+        g.fillRect(j+360,130,20,90);
+        g.fillRect(j+420,130,20,90);
+        g.fillRect(j+450,130,20,90);
+        g.fillRect(j+480,130,20,90);
+        g.fillRect(j+510,130,20,90);
+        g.fillRect(j+540,130,20,90);
+        g.fillRect(j+570,130,20,90);
+        g.fillRect(j+600,130,20,90);
+        g.fillRect(j+630,130,20,90);
+        g.fillRect(j+660,130,20,90);
+        g.fillRect(j+690,130,20,90);
+        g.fillRect(j+720,130,20,90);
+        g.fillRect(j+750,130,20,90);
+        g.fillRect(j+780,130,20,90);
         
         // ears
         // left
@@ -290,14 +303,15 @@ public class face extends JComponent implements ActionListener {
         g.drawRect(300, 160, 260, 20);
         // fill rect
         g.fillRect(300, 160, 260, 20);
-                
-               
-                
-                
-                
-                
-                
-	
+        
+        // moon and sun
+        // sun
+        // set color
+        g.setColor(red);
+        // draw
+        g.drawOval(sunX,sunY,100,100);
+        g.fillOval(sunX, sunY, 100, 100);
+        
         // GAME DRAWING ENDS HERE
     }
 
@@ -312,16 +326,19 @@ public class face extends JComponent implements ActionListener {
     // In here is where all the logic for my game will go
     public void gameLoop() {
         gameTimer.start();
-        if(l<200){
-            l = l + 80;
-            y = x;
-            u = z;
-        }else if(l>=200){
-            l = l-80;
-            y=z;
-            u=WW;
+        
+        // when sun leaves the screen
+        if(sunX>WIDTH){
+            sunX = -100;
+        }else if(sunX<-100){
+            sunX = WIDTH + 100;
         }
-
+        // move the player
+        if(moveUp){
+            sunY = sunY - 10;
+        }else if(moveDown){
+            sunY = sunY + 10;
+        }
     }
 
     // Used to implement any of the Mouse Actions
@@ -330,13 +347,17 @@ public class face extends JComponent implements ActionListener {
         // if a mouse button has been pressed down
         @Override
         public void mousePressed(MouseEvent e) {
-            
+            if(e.getButton()== MouseEvent.BUTTON1){
+            j = j-15;
+            }
         }
 
         // if a mouse button has been released
         @Override
         public void mouseReleased(MouseEvent e) {
-
+            if(e.getButton()== MouseEvent.BUTTON1){
+                j = j + 15;
+            }
         }
 
         // if the scroll wheel has been moved
@@ -358,13 +379,41 @@ public class face extends JComponent implements ActionListener {
         // if a key has been pressed down
         @Override
         public void keyPressed(KeyEvent e) {
-
+            // get the key code
+            int keyCode = e.getKeyCode();
+            if(keyCode == KeyEvent.VK_SHIFT){
+                    l = l + 80;
+                    y = x;
+                    u = z;
+                    yell = theblue;
+                    red = newwhite;
+            }
+            if(keyCode == KeyEvent.VK_CONTROL){
+                    l = l-80;
+                    y=z;
+                    u=WW;
+                    yell = yel;
+                    red = redd;
+            }
+            // which key is being pressed
+            if(keyCode == KeyEvent.VK_UP){
+                moveUp = true;
+            }else if(keyCode == KeyEvent.VK_DOWN){
+                moveDown = true;
+            }
         }
 
         // if a key has been released
         @Override
         public void keyReleased(KeyEvent e) {
-
+            // get the key code
+            int keyCode = e.getKeyCode();
+            // which key is being pressed
+            if(keyCode == KeyEvent.VK_UP){
+                moveUp = false;
+            }else if(keyCode == KeyEvent.VK_DOWN){
+                moveDown = false;
+            }
         }
     }
 
