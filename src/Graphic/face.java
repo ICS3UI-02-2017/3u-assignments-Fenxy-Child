@@ -42,6 +42,7 @@ public class face extends JComponent implements ActionListener {
     // set the costom colors
     Color yell = new Color(251, 206, 177);
     Color brown = new Color(76, 38, 0);
+    Color Brown = new Color(76, 38, 0);
     Color x = new Color(255, 180, 223);
     Color y = new Color(0,0,0);
     Color z = new Color(0,0,0);
@@ -54,7 +55,6 @@ public class face extends JComponent implements ActionListener {
     Color yel = new Color(251,206,177);
 
     // set int
-    int l = 120;
     int j = 0;
     
     // sun
@@ -63,6 +63,8 @@ public class face extends JComponent implements ActionListener {
 
     boolean moveUp = false;
     boolean moveDown = false;
+    boolean moveLeft = false;
+    boolean moveRight = false;
 
     // GAME VARIABLES END HERE    
 
@@ -232,32 +234,39 @@ public class face extends JComponent implements ActionListener {
         g.drawPolyline(v,o,2); 
         
         // eyes
+        // left
+        // sclera
+        // set color
+        g.setColor(u);
+        // draw circles
+        g.drawOval(300, 200, 80, 80);
+        // fill the color
+        g.fillOval(300, 200, 80, 80);
+        // iris
+        // color
+        g.setColor(Brown);
+        // draw circles
+        g.drawOval(320,220,40,40);
+        // fill the color
+        g.fillOval(320,220,40,40);
+        // right
         // sclera
         // set color
         g.setColor(Color.WHITE);
         // draw circles
-        g.drawOval(300, 200, 80, 80);
         g.drawOval(480, 200, 80, 80);
         // fill the color
         g.fillOval(480, 200, 80, 80);
-	g.fillOval(300, 200, 80, 80);
         // iris
         // color
         g.setColor(brown);
         // draw circles
-        g.drawOval(320,220,40,40);
-	g.drawOval(500,220,40,40);
+        g.drawOval(500,220,40,40);
         // fill the color
-        g.fillOval(320,220,40,40);
         g.fillOval(500,220,40,40);
         
-        //circle
-        //set color
-        g.setColor(Color.BLACK);
-        // draw ovals
-        g.drawOval(300, l, 80, 80);
-        // fill ovals
-        g.fillOval(300, l, 80, 80);
+        
+	
         
         // nose
         // set color
@@ -311,6 +320,15 @@ public class face extends JComponent implements ActionListener {
         // draw
         g.drawOval(sunX,sunY,100,100);
         g.fillOval(sunX, sunY, 100, 100);
+        // set color
+        g.setColor(redd);
+        g.drawOval(sunX+10,sunY+20,20,20);
+        g.drawOval(sunX+45,sunY+35,30,30);
+        g.drawOval(sunX+80,sunY+40,10,10);
+        g.drawOval(sunX+15,sunY+50,30,30);
+        g.drawOval(sunX+50,sunY+10,20,20);
+        g.drawOval(sunX+50,sunY+70,20,20);
+        
         
         // GAME DRAWING ENDS HERE
     }
@@ -330,14 +348,28 @@ public class face extends JComponent implements ActionListener {
         // when sun leaves the screen
         if(sunX>WIDTH){
             sunX = -100;
-        }else if(sunX<-100){
+        }
+        if(sunX<-100){
             sunX = WIDTH + 100;
         }
+        if(sunY>HEIGHT){
+            sunY = -100;
+        }
+        if(sunY<-100){
+            sunY = HEIGHT;
+        }
+        
         // move the player
         if(moveUp){
             sunY = sunY - 10;
         }else if(moveDown){
             sunY = sunY + 10;
+        }
+        
+        if(moveLeft){
+            sunX = sunX - 10;
+        }else if(moveRight){
+            sunX = sunX + 10;
         }
     }
 
@@ -382,24 +414,33 @@ public class face extends JComponent implements ActionListener {
             // get the key code
             int keyCode = e.getKeyCode();
             if(keyCode == KeyEvent.VK_SHIFT){
-                    l = l + 80;
                     y = x;
                     u = z;
                     yell = theblue;
                     red = newwhite;
+                    Brown = z;
+                    redd = Color.BLACK;
             }
             if(keyCode == KeyEvent.VK_CONTROL){
-                    l = l-80;
                     y=z;
                     u=WW;
                     yell = yel;
-                    red = redd;
+                    red = Color.RED;
+                    Brown = brown;
+                    redd = red;
             }
             // which key is being pressed
             if(keyCode == KeyEvent.VK_UP){
                 moveUp = true;
-            }else if(keyCode == KeyEvent.VK_DOWN){
+            }
+            if(keyCode == KeyEvent.VK_DOWN){
                 moveDown = true;
+            }
+            if(keyCode == KeyEvent.VK_LEFT){
+                moveLeft = true;
+            }
+            if(keyCode == KeyEvent.VK_RIGHT){
+                moveRight = true;
             }
         }
 
@@ -411,8 +452,15 @@ public class face extends JComponent implements ActionListener {
             // which key is being pressed
             if(keyCode == KeyEvent.VK_UP){
                 moveUp = false;
-            }else if(keyCode == KeyEvent.VK_DOWN){
+            }
+            if(keyCode == KeyEvent.VK_DOWN){
                 moveDown = false;
+            }
+            if(keyCode == KeyEvent.VK_LEFT){
+                moveLeft = false;
+            }
+            if(keyCode == KeyEvent.VK_RIGHT){
+                moveRight = false;
             }
         }
     }
