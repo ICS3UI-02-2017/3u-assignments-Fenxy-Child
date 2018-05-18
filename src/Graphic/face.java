@@ -56,6 +56,8 @@ public class face extends JComponent implements ActionListener {
 
     // set int
     int j = 0;
+    int ii = 50;
+    int jj = 50;
     
     // sun
     int sunX = 100;
@@ -330,6 +332,31 @@ public class face extends JComponent implements ActionListener {
         g.drawOval(sunX+50,sunY+70,20,20);
         
         
+        // ball
+        // color
+        g.setColor(Color.CYAN);
+        // draw
+        g.drawOval(ii,jj,50,50);
+        g.drawOval(ii+100,jj+100,50,50);
+        g.drawOval(ii+200,jj+200,50,50);
+        g.drawOval(ii+300,jj+300,50,50);
+        g.drawOval(ii+400,jj+400,50,50);
+        g.drawOval(ii+500,jj+500,50,50);
+        g.drawOval(ii+600,jj+600,50,50);
+        g.drawOval(ii+700,jj+700,50,50);
+        g.drawOval(ii+800,jj+800,50,50);
+        // fill
+        g.fillOval(ii,jj,50,50);
+        g.fillOval(ii+100,jj+100,50,50);
+        g.fillOval(ii+200,jj+200,50,50);
+        g.fillOval(ii+300,jj+300,50,50);
+        g.fillOval(ii+400,jj+400,50,50);
+        g.fillOval(ii+500,jj+500,50,50);
+        g.fillOval(ii+600,jj+600,50,50);
+        g.fillOval(ii+700,jj+700,50,50);
+        g.fillOval(ii+800,jj+800,50,50);
+        
+        
         // GAME DRAWING ENDS HERE
     }
 
@@ -345,6 +372,23 @@ public class face extends JComponent implements ActionListener {
     public void gameLoop() {
         gameTimer.start();
         
+        // move balls
+        ii = ii + 10;
+        jj = jj + 10;
+        
+        // when the balls leaves the screen
+        if(ii>WIDTH){
+            ii = -100;
+        }
+        if(ii<-100){
+            ii = WIDTH + 100;
+        }
+        if(jj>HEIGHT){
+            jj = -100;
+        }
+        if(jj<-100){
+            jj = HEIGHT;
+        }
         // when sun leaves the screen
         if(sunX>WIDTH){
             sunX = -100;
