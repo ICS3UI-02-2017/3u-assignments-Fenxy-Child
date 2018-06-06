@@ -60,9 +60,12 @@ public class project1st extends JComponent implements ActionListener {
     // random
     Random random = new Random();
     
-    // int for strike and ball
+    // int for strike and ball and
     int strike = 0;
     int ball = 0;
+    
+    // boolean out
+    boolean out = false;
     
     // int tries
     int tries = 0;
@@ -73,6 +76,10 @@ public class project1st extends JComponent implements ActionListener {
     // boolean showup strike/ball
     boolean showst = false;
     boolean showba = false; 
+    
+    // boolean end game
+    boolean end = false; 
+    
     
     // x
     int x1 = 50;
@@ -223,10 +230,46 @@ public class project1st extends JComponent implements ActionListener {
         // next trial
         g.setColor(Color.WHITE);
         g.fillRoundRect(640, 220, 50, 20, 10, 10);
+        g.setColor(Color.BLACK);
+        g.drawString("next",645,235);
+        
+        if(out==true){
+            
+            g.setColor(Color.RED);
+            g.drawString("OUT!", 635,220);
+        }
+        
+        // end the game
+        if(end == true){
+            // clear background
+            g.clearRect(0, 0, WIDTH, HEIGHT);
+            // set color
+            g.setColor(Color.GREEN);
+            // background
+            g.fillRoundRect(0,0,WIDTH,HEIGHT,100,100);
+            // set font
+            g.setFont(biggerFont);
+            // set color
+            g.setColor(Color.RED);
+            // Final Score
+            g.drawString("You Win!!", 300, 275);
+            g.drawString("" + computer[0] + " " + computer[1] + " " + computer[2], 300, 225);
+            // set new font
+            g.setFont(smaller);
+            g.drawString("Time : " , 350, 400);
+            g.drawString("Tries : " + tries , 350, 375);   
+            
+            // new game
+            g.setColor(Color.yellow);
+            g.fillRoundRect(450, 450, 75, 75, 10, 10);
+            g.setColor(Color.CYAN);
+            g.drawString("NEW GAME", 500,500);
+        }
+        
         
         // GAME DRAWING ENDS HERE
     }
-
+    
     // This method is used to do any pre-setup you might need to do
     // This is run before the game loop begins!
     public void preSetup() {
@@ -255,12 +298,22 @@ public class project1st extends JComponent implements ActionListener {
     // The main game loop
     // In here is where all the logic for my game will go
     public void gameLoop() {
-        if(enter = true){
-            strikecount();
-            showst = true; 
-            ballcount();
-            showba = true;
+            
+        if(strike != 3){
+            end = false; 
+            if(enter){
+                showst = true;
+                showba = true;
+            }
+        }else if(strike == 3 && enter){
+            end = true;
         }
+        
+        if(strike == 0&& ball == 0 && enter){
+            out = true;
+           
+        }
+        
     }
     
     private void strikecount() {
@@ -276,17 +329,17 @@ public class project1st extends JComponent implements ActionListener {
     }
 
     private void ballcount() {
-        if(computer[0] == user[1] || computer[0] == user[2]){
-            ball = ball + 1;
-        }
-        if(computer[1] == user[0] || computer[1] == user[2]){
-            ball = ball + 1;
-        }
-        if(computer[2]== user[0] || computer[2] == user[1]){
-            ball = ball + 1;
-        }
-        
+            if(user[0]==computer[1]||user[0]==computer[2]){
+                ball = ball + 1;
+            }
+            if(user[1]==computer[0]||user[1]==computer[2]){
+                ball = ball + 1;
+            }
+            if(user[2]==computer[0]||user[2]==computer[1]){
+                ball = ball + 1;
+            }
     }
+
 
     
 
@@ -485,6 +538,7 @@ public class project1st extends JComponent implements ActionListener {
                 // clear
                 if(user[0] != 0 || user[1] != 0 || user[2]!=0){
                     if(e.getX()>= 680 && e.getX()<= 730 && e.getY()<= 530 && e.getY()>=500){
+                        if(e.getButton()== MouseEvent.BUTTON1){
                         // x
                         x1 = 50;
                         x2 = 120;
@@ -512,15 +566,65 @@ public class project1st extends JComponent implements ActionListener {
                         user[1] = 0;
                         user[2] = 0;
                         
+                        // strike and balls
+                        strike = 0;
+                        ball = 0;
+                        out = false; 
+                        
                     }
-                    
-                    
-                    
+                    }
+                }
+                
+                // enter
                 if(user[0] != 0 && user[1] != 0 && user[2]!=0){
                     if(e.getX()>= 680 && e.getX()<= 730 && e.getY()<= 565 && e.getY()>=535){
-                        enter = true;
+                        if(e.getButton()== MouseEvent.BUTTON1){
+                            strikecount();
+                            ballcount();
+                            enter = true;
+                            
                         // add tries
                         tries = tries + 1;
+                        }
+                    }
+                }
+                
+                // next turn
+                if(strike != 3){
+                if(e.getX()>= 640 && e.getX()<= 690 && e.getY() >= 220 && e.getY() <= 240){
+                    if(e.getButton() == MouseEvent.BUTTON1){
+                    strike = 0;
+                    ball = 0;
+                    showst = false; 
+                    showba = false; 
+                    out = false; 
+                    
+                    // x
+                        x1 = 50;
+                        x2 = 120;
+                        x3 = 190;
+                        x4 = 260;
+                        x5 = 330;
+                        x6 = 400;
+                        x7 = 470;
+                        x8 = 540;
+                        x9 = 610;
+
+                        // y 
+                        y1 = 500;
+                        y2 = 500;
+                        y3 = 500;
+                        y4 = 500;
+                        y5 = 500;
+                        y6 = 500;
+                        y7 = 500;
+                        y8 = 500;
+                        y9 = 500;
+                        
+                        // reset
+                        user[0] = 0;
+                        user[1] = 0;
+                        user[2] = 0;
                     }
                 }
                 }
@@ -554,13 +658,250 @@ public class project1st extends JComponent implements ActionListener {
         // if a key has been pressed down
         @Override
         public void keyPressed(KeyEvent e) {
+             int keyCode = e.getKeyCode();
+            // if statement for first digit of number
+            // if first digit is zero
+                if(user[0] == 0){
+                    if(keyCode== KeyEvent.VK_1||keyCode==KeyEvent.VK_NUMPAD1){
+                        // '1' card goes first space
+                        x1 = 80;
+                        y1 = 260;
+                        // first digit is '1'
+                        user[0] = 1;
+                    }
+                    // same method has been used for other cards
+                else if(keyCode== KeyEvent.VK_2||keyCode==KeyEvent.VK_NUMPAD2){
+                        x2 = 80;
+                        y2 = 260;
+                        user[0] = 2;
+                    
+                }else if(keyCode== KeyEvent.VK_3||keyCode==KeyEvent.VK_NUMPAD3){
+                        x3 = 80;
+                        y3 = 260;
+                        user[0] = 3;
+                    
+                }else if(keyCode== KeyEvent.VK_4||keyCode==KeyEvent.VK_NUMPAD4){
+                        x4 = 80;
+                        y4 = 260;
+                        user[0] = 4;
+                    
+                }else if(keyCode== KeyEvent.VK_5||keyCode==KeyEvent.VK_NUMPAD5){
+                        x5 = 80;
+                        y5 = 260;
+                        user[0] = 5;
+                    
+                }else if(keyCode== KeyEvent.VK_6||keyCode==KeyEvent.VK_NUMPAD6){
+                        x6 = 80;
+                        y6 = 260;
+                        user[0] = 6;
+                    
+                }else if(keyCode== KeyEvent.VK_7||keyCode==KeyEvent.VK_NUMPAD7){
+                        x7 = 80;
+                        y7 = 260;
+                        user[0] = 7;
+                    
+                }else if(keyCode== KeyEvent.VK_8||keyCode==KeyEvent.VK_NUMPAD8){
+                        x8 = 80;
+                        y8 = 260;
+                        user[0] = 8;
+                    
+                }else if(keyCode== KeyEvent.VK_9||keyCode==KeyEvent.VK_NUMPAD9){
+                        x9 = 80;
+                        y9 = 260;
+                        user[0] = 9;
+                    }
+                }
+                
+            
+            
+                // second digit
+                // if first digit is zero
+                else if(user[0]!=0 && user[1] == 0){
+                if(keyCode== KeyEvent.VK_1||keyCode==KeyEvent.VK_NUMPAD1){
+                        x1 = 170;
+                        y1 = 260;
+                        user[1] = 1;
+                }else if(keyCode== KeyEvent.VK_2||keyCode==KeyEvent.VK_NUMPAD2){
+                        x2 = 170;
+                        y2 = 260;
+                        user[1] = 2;
+                }else if(keyCode== KeyEvent.VK_3||keyCode==KeyEvent.VK_NUMPAD3){
+                        x3 = 170;
+                        y3 = 260;
+                        user[1] = 3;
+                }else if(keyCode== KeyEvent.VK_4||keyCode==KeyEvent.VK_NUMPAD4){
+                        x4 = 170;
+                        y4 = 260;
+                        user[1] = 4;
+                }else if(keyCode== KeyEvent.VK_5||keyCode==KeyEvent.VK_NUMPAD5){
+                        x5 = 170;
+                        y5 = 260;
+                        user[1] = 5;
+                }else if(keyCode== KeyEvent.VK_6||keyCode==KeyEvent.VK_NUMPAD6){
+                        x6 = 170;
+                        y6 = 260;
+                        user[1] = 6;
+                }else if(keyCode== KeyEvent.VK_7||keyCode==KeyEvent.VK_NUMPAD7){
+                        x7 = 170;
+                        y7 = 260;
+                        user[1] = 7;
+                }else if(keyCode== KeyEvent.VK_8||keyCode==KeyEvent.VK_NUMPAD8){
+                        x8 = 170;
+                        y8 = 260;
+                        user[1] = 8;
+                }else if(keyCode== KeyEvent.VK_9||keyCode==KeyEvent.VK_NUMPAD9){
+                        x9 = 170;
+                        y9 = 260;
+                        user[1] = 9;
+                }
+            }
+                
+                // third digit
+                else if(user[0] != 0 && user[1] != 0 && user[2] == 0){
+                if(keyCode== KeyEvent.VK_1||keyCode==KeyEvent.VK_NUMPAD1){
+                        x1 = 260;
+                        y1 = 260;
+                        user[2] = 1;
+                    
+                }else if(keyCode== KeyEvent.VK_2||keyCode==KeyEvent.VK_NUMPAD2){
+                        x2 = 260;
+                        y2 = 260;
+                        user[2] = 2;
+                    
+                }else if(keyCode== KeyEvent.VK_3||keyCode==KeyEvent.VK_NUMPAD3){
+                        x3 = 260;
+                        y3 = 260;
+                        user[2] = 3;
+                    
+                }else if(keyCode== KeyEvent.VK_4||keyCode==KeyEvent.VK_NUMPAD4){
+                        x4 = 260;
+                        y4 = 260;
+                        user[2] = 4;
+                    
+                }else if(keyCode== KeyEvent.VK_5||keyCode==KeyEvent.VK_NUMPAD5){
+                        x5 = 260;
+                        y5 = 260;
+                        user[2] = 5;
+                    
+                }else if(keyCode== KeyEvent.VK_6||keyCode==KeyEvent.VK_NUMPAD6){
+                        x6 = 260;
+                        y6 = 260;
+                        user[2] = 6;
+                    
+                }else if(keyCode== KeyEvent.VK_7||keyCode==KeyEvent.VK_NUMPAD7){
+                        x7 = 260;
+                        y7 = 260;
+                        user[2] = 7;
+                    
+                }else if(keyCode== KeyEvent.VK_8||keyCode==KeyEvent.VK_NUMPAD8){
+                        x8 = 260;
+                        y8 = 260;
+                        user[2] = 8;
+                    
+                }else if(keyCode== KeyEvent.VK_9||keyCode==KeyEvent.VK_NUMPAD9){
+                        x9 = 260;
+                        y9 = 260;
+                        user[2] = 9;
+                    
+                }
+        }
              
+                // clear
+                if(user[0] != 0 || user[1] != 0 || user[2]!=0){
+                    if(keyCode== KeyEvent.VK_BACK_SPACE){
+                        // x
+                        x1 = 50;
+                        x2 = 120;
+                        x3 = 190;
+                        x4 = 260;
+                        x5 = 330;
+                        x6 = 400;
+                        x7 = 470;
+                        x8 = 540;
+                        x9 = 610;
+
+                        // y 
+                        y1 = 500;
+                        y2 = 500;
+                        y3 = 500;
+                        y4 = 500;
+                        y5 = 500;
+                        y6 = 500;
+                        y7 = 500;
+                        y8 = 500;
+                        y9 = 500;
+                        
+                        // reset
+                        user[0] = 0;
+                        user[1] = 0;
+                        user[2] = 0;
+                        
+                        // strike and balls
+                        strike = 0;
+                        ball = 0;
+                        out = false; 
+                        
+                    }
+                    }
+                
+                
+                // enter
+                if(keyCode== KeyEvent.VK_ENTER){
+                            strikecount();
+                            ballcount();
+                            enter = true;
+                            
+                        // add tries
+                        tries = tries + 1;
+                        }
+                
+                // next turn
+                if(strike != 3){
+                if(keyCode== KeyEvent.VK_RIGHT){
+                    strike = 0;
+                    ball = 0;
+                    showst = false; 
+                    showba = false; 
+                    out = false; 
+                    
+                    // x
+                        x1 = 50;
+                        x2 = 120;
+                        x3 = 190;
+                        x4 = 260;
+                        x5 = 330;
+                        x6 = 400;
+                        x7 = 470;
+                        x8 = 540;
+                        x9 = 610;
+
+                        // y 
+                        y1 = 500;
+                        y2 = 500;
+                        y3 = 500;
+                        y4 = 500;
+                        y5 = 500;
+                        y6 = 500;
+                        y7 = 500;
+                        y8 = 500;
+                        y9 = 500;
+                        
+                        // reset
+                        user[0] = 0;
+                        user[1] = 0;
+                        user[2] = 0;
+                    }
+                }
         }
 
         // if a key has been released
         @Override
         public void keyReleased(KeyEvent e) {
-
+            int keyCode = e.getKeyCode();
+            
+            if(keyCode== KeyEvent.VK_ENTER){
+                            enter = false;
+                        }
         }
     }
 
