@@ -18,6 +18,8 @@ import java.io.File;
 import javax.swing.Timer;
 
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 /**
@@ -47,6 +49,7 @@ public class project1st extends JComponent implements ActionListener {
     // create a custom font
     Font biggerFont = new Font("times new roman",Font.ITALIC, 50);
     Font smaller = new Font("times new roman",Font.ITALIC, 25);
+    Font another = new Font("times new roman", Font.BOLD,20);
     
     // custom color
     Color skyblue = new Color(135, 206, 235);
@@ -72,14 +75,13 @@ public class project1st extends JComponent implements ActionListener {
     // int tries
     int tries = 0;
     
-    // boolean enter
-    boolean enter = false; 
-    
-    // boolean showup strike/ball
-    boolean showst = false;
-    boolean showba = false; 
-    
-    // boolean end game
+    // boolean 
+    // enter
+    boolean enter = false;
+    //showup strike/ball
+    boolean showst = true;
+    boolean showba = true;
+    // end game
     boolean end = false; 
     
         
@@ -108,6 +110,7 @@ public class project1st extends JComponent implements ActionListener {
     // start time
     long startT = System.currentTimeMillis();
     
+    BufferedImage picture = loadImage("baseball-on-dirt.jpg");
     
     // GAME VARIABLES END HERE    
 
@@ -141,6 +144,18 @@ public class project1st extends JComponent implements ActionListener {
         gameTimer.setRepeats(true);
         gameTimer.start();        
     }
+    
+    
+    public BufferedImage loadImage(String name){
+        BufferedImage img = null;
+        try{
+            img = ImageIO.read(new File(name));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return img;
+    }
+    
 
     // drawing of the game happens in here
     // we use the Graphics object, g, to perform the drawing
@@ -218,7 +233,7 @@ public class project1st extends JComponent implements ActionListener {
         g.drawString("B", 600, 200);
         
         // if showst is true
-        if(showst = true){
+        if(showst == true){
             // set color
             g.setColor(Color.yellow);
             // show strikes
@@ -226,7 +241,7 @@ public class project1st extends JComponent implements ActionListener {
         }
         
         // if showba is true
-        if(showba = true){
+        if(showba == true){
             // set color
             g.setColor(Color.GREEN);
             // show balls
@@ -256,7 +271,8 @@ public class project1st extends JComponent implements ActionListener {
         g.drawString("Time and Tries", 550, 300);
         g.drawRoundRect(500,300,250,150,50,50);    
         // time
-        long nowt = (System.currentTimeMillis() - startT)/1000;
+        long now = System.currentTimeMillis();
+        long nowt = (now - startT)/1000;
         // shows time and tries 
         g.drawString("Time   " + nowt + " sec." , 525, 350);
         g.drawString("Tries", 525, 400);
@@ -279,27 +295,27 @@ public class project1st extends JComponent implements ActionListener {
         if(end == true){
             // clear background
             g.clearRect(0, 0, WIDTH, HEIGHT);
-            // set color
-            g.setColor(Color.GREEN);
-            // background
-            g.fillRoundRect(0,0,WIDTH,HEIGHT,100,100);
+            // draw image
+            g.drawImage(picture, 0, 0, WIDTH, HEIGHT, null);
             // set font
             g.setFont(biggerFont);
             // set color
             g.setColor(Color.RED);
             // Final Score
-            g.drawString("You Win!!", 300, 275);
-            g.drawString("" + computer[0] + " " + computer[1] + " " + computer[2], 300, 225);
+            g.drawString("You Win!!", 550, 125);
+            g.drawString("" + computer[0] + " " + computer[1] + " " + computer[2], 600, 175);
             // set new font
             g.setFont(smaller);
-            g.drawString("Time : " + nowt + "  sec. ", 350, 400);
-            g.drawString("Tries : " + tries , 350, 375);   
+            long finaltime = nowt;
+            g.drawString("Time : " + finaltime + "  sec. ", 600, 325);
+            g.drawString("Tries : " + tries , 600, 375);   
             
             // new game
             g.setColor(Color.yellow);
-            g.fillRoundRect(350, 450, 135, 50, 10, 10);
+            g.fillRoundRect(600, 400, 135, 50, 10, 10);
             g.setColor(Color.CYAN);
-            g.drawString("NEW GAME", 355 , 475);
+            g.setFont(another);
+            g.drawString("NEW GAME", 615 , 425);
         }
         
         
@@ -336,21 +352,17 @@ public class project1st extends JComponent implements ActionListener {
     public void gameLoop() {
             
         if(strike != 3){
-            end = false; 
-            if(user[0]==0||user[1] == 0 || user[2] == 0){
-                enter = false;
-            }
-            if(user[0]!=0&&user[1]!=0&&user[2]!=0){
-                if(enter){
+            end = false;
+                if(enter == true){
                 showst = true;
                 showba = true;
             }
-            }
-        }else if(strike == 3 && enter){
+            
+        }else if(strike == 3 && enter == true){
             end = true;
         }
         
-        if(strike == 0&& ball == 0 && enter){
+        if(strike == 0&& ball == 0 && enter == true){
             out = true;
            
         }
@@ -624,6 +636,12 @@ public class project1st extends JComponent implements ActionListener {
                             ballcount();
                             enter = true;
                             tries = tries + 1;
+                            // print out
+                            if(ball!=0||strike!=0){
+                            System.out.println(user[0] +""+ user[1]+"" + user[2] + " is " + ball + " ball " + strike + " strike. ");
+                            }else if(ball==0&&strike==0){
+                            System.out.println(user[0] +""+ user[1]+"" + user[2] + " is out.");
+                            }
                         }
                     }
                 }
@@ -670,7 +688,7 @@ public class project1st extends JComponent implements ActionListener {
                 
                 // new game 
                 if(strike == 3){
-                    if(e.getX()>=350 && e.getX()<=485 && e.getY()>=450&&e.getY()<=500){
+                    if(e.getX()>=600 && e.getX()<=735 && e.getY()>=400&&e.getY()<=450){
                         if(e.getButton()==MouseEvent.BUTTON1){
                             end = false; 
                             strike = 0;
@@ -929,20 +947,36 @@ public class project1st extends JComponent implements ActionListener {
                     }
                     }
                 
-                
                 // enter
-                if(keyCode== KeyEvent.VK_ENTER){
+                    if(user[0]!=0&&user[1]!=0&&user[2]!=0){
+                        if(keyCode== KeyEvent.VK_ENTER){
                             strikecount();
                             ballcount();
                             enter = true;
-                            
                         // add tries
                         tries = tries + 1;
+                        // print out result
+                        if(ball!=0||strike!=0){
+                            System.out.println(user[0] +""+ user[1]+"" + user[2] + " is " + ball + " ball " + strike + " strike. ");
+                            }else if(ball==0&&strike==0){
+                            System.out.println(user[0] +""+ user[1]+"" + user[2] + " is out.");
                         }
+                        }
+                }
+                if(user[0]==0||user[1]==0||user[2]==0){
+                if(keyCode== KeyEvent.VK_ENTER){
+                            enter = false;
+                            showst = false;
+                            showba = false;
+                            out = false;
+                        }
+                }
+                
                 
                 // next turn
                 if(strike != 3){
                 if(keyCode== KeyEvent.VK_RIGHT){
+                    // reset 
                     strike = 0;
                     ball = 0;
                     showst = false; 
@@ -975,6 +1009,8 @@ public class project1st extends JComponent implements ActionListener {
                         user[0] = 0;
                         user[1] = 0;
                         user[2] = 0;
+                    
+                   
                     }
                 }
         }
