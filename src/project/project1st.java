@@ -47,12 +47,12 @@ public class project1st extends JComponent implements ActionListener {
     Timer gameTimer;
 
     // YOUR GAME VARIABLES WOULD GO HERE
-    // create a custom font
+    // create custom fonts
     Font biggerFont = new Font("times new roman",Font.ITALIC, 50);
     Font smaller = new Font("times new roman",Font.ITALIC, 25);
     Font another = new Font("times new roman", Font.BOLD,20);
     
-    // custom color
+    // custom colors
     Color skyblue = new Color(135, 206, 235);
     Color bl = new Color(0,0,0);
     Color cy = new Color(0,255,255);
@@ -66,7 +66,7 @@ public class project1st extends JComponent implements ActionListener {
     // random for computer[]
     Random random = new Random();
     
-    // int for strike and ball and
+    // int for strike and ball
     int strike = 0;
     int ball = 0;
 
@@ -79,12 +79,13 @@ public class project1st extends JComponent implements ActionListener {
     // boolean 
     // enter
     boolean enter = false;
-    //showup strike/ball
+    //show strike/ball
     boolean showst = true;
     boolean showba = true;
     // end game
     boolean end = false; 
     
+    // Game #
     int a = 1;
     
     // x positions for cards
@@ -109,12 +110,14 @@ public class project1st extends JComponent implements ActionListener {
     int y8 = 500;
     int y9 = 500;
     
+    // last keyboard/mouse pressed/clicked
     int lastkey = 0;
 
     
     // start time
     long startT = System.currentTimeMillis();
     
+    // background result page
     BufferedImage picture = loadImage("baseball-on-dirt.jpg");
     
     // GAME VARIABLES END HERE    
@@ -150,7 +153,7 @@ public class project1st extends JComponent implements ActionListener {
         gameTimer.start();        
     }
     
-    
+    // load image method
     public BufferedImage loadImage(String name){
         BufferedImage img = null;
         try{
@@ -158,6 +161,7 @@ public class project1st extends JComponent implements ActionListener {
         }catch(Exception e){
             e.printStackTrace();
         }
+	// return
         return img;
     }
     
@@ -262,10 +266,11 @@ public class project1st extends JComponent implements ActionListener {
         // result (game board)
         // set color
         g.setColor(Color.RED);
-        // results
-        g.drawString("RESULT", 100, 200);
+        // BOARD
+        g.drawString("BOARD", 100, 200);
         g.drawRoundRect(50,200,300,200,50,50);
-        g.setColor(Color.BLACK);
+        // cards on the board
+	g.setColor(Color.BLACK);
         g.drawRoundRect(80, 260, 50, 75, 10, 10);
         g.drawRoundRect(170, 260, 50, 75, 10, 10);
         g.drawRoundRect(260, 260, 50, 75, 10, 10);
@@ -306,13 +311,11 @@ public class project1st extends JComponent implements ActionListener {
             g.setFont(biggerFont);
             // set color
             g.setColor(Color.RED);
-            // Final Score
+            // Final result
             g.drawString("You Win!!", 550, 125);
             g.drawString("" + computer[0] + " " + computer[1] + " " + computer[2], 600, 175);
             // set new font
             g.setFont(smaller);
-            long finaltime = nowt;
-            g.drawString("Time : " + finaltime + "  sec. ", 600, 325);
             g.drawString("Tries : " + tries , 600, 375);   
             
             // new game
@@ -355,43 +358,57 @@ public class project1st extends JComponent implements ActionListener {
     // The main game loop
     // In here is where all the logic for my game will go
     public void gameLoop() {
-        if(strike != 3){
-            end = false;
+        // if strike is not 3
+	    if(strike != 3){
+            // do not show final page
+	    end = false;
+		// if enter is pressed
                 if(enter == true){
-                showst = true;
+                // show strike and ball count
+		showst = true;
                 showba = true;
             }
-            
+            // else if strike is 3 and enter is pressed
         }else if(strike == 3 && enter == true){
+	    // show last page
             end = true;
         }
-        
+        // show out if it is out
         if(strike == 0&& ball == 0 && enter == true){
             out = true;
            
         }
         
     }
-    
+    // method to count strike
     private void strikecount() {
+	    // if first digit is strike
             if(computer[0] == user[0]){
+		// add 1 to strike count
+                strike = strike + 1;
+            }	    
+	    // if second digit is strike
+	    if(computer[1] == user[1]){
                 strike = strike + 1;
             }
-            if(computer[1] == user[1]){
-                strike = strike + 1;
-            }
-            if(computer[2] == user[2]){
+            	// if third digit is strike
+		if(computer[2] == user[2]){
                 strike = strike + 1;
             }
     }
 
+    // method to count ball
     private void ballcount() {
+	    // if first digit is ball
             if(user[0]==computer[1]||user[0]==computer[2]){
-                ball = ball + 1;
+                // add 1 to ball count
+		ball = ball + 1;
             }
+	    // if second digit is ball
             if(user[1]==computer[0]||user[1]==computer[2]){
                 ball = ball + 1;
             }
+	    // if third digit is ball
             if(user[2]==computer[0]||user[2]==computer[1]){
                 ball = ball + 1;
             }
@@ -633,31 +650,47 @@ public class project1st extends JComponent implements ActionListener {
                 }
                 
                 // enter
+		// if 3 cards are all placed on the board
                 if(user[0] != 0 && user[1] != 0 && user[2]!=0){
+		    // if mouse placed on the enter button
                     if(e.getX()>= 680 && e.getX()<= 730 && e.getY()<= 565 && e.getY()>=535){
-                        if(e.getButton()== MouseEvent.BUTTON1&&lastkey !=1){
+                        // if button is clicked 
+			if(e.getButton()== MouseEvent.BUTTON1&&lastkey !=1){
                             lastkey=1;
-                            strikecount();
+                            // methods 
+			    strikecount();
                             ballcount();
+			    // enter
                             enter = true;
-                            tries = tries + 1;
+                            // add 1 to the number of tries 
+			    tries = tries + 1;
                             // print out
+			    // if ball or strike is not zero
                             if(ball!=0||strike!=0){
+			    // strike/ball count
                             System.out.println(user[0] +""+ user[1]+"" + user[2] + " is " + ball + " ball " + strike + " strike. ");
-                            }else if(ball==0&&strike==0){
-                            System.out.println(user[0] +""+ user[1]+"" + user[2] + " is out.");
-                            }else if(strike == 3){
-                            System.out.println("You win!");
+                            // if it is out
+			    }else if(ball==0&&strike==0){
+                            // out
+			    System.out.println(user[0] +""+ user[1]+"" + user[2] + " is out.");
+                            // if strike is 3
+			    }else if(strike == 3){
+                            // print out "you win" and number of tries
+				    System.out.println("You win!");
+				    System.out.println("Tries: " + tries);
                             }
                         }
                     }
                 }
                 
                 // next turn
+		// if strike is not 3
                 if(strike != 3){
+		// if click 'next'
                 if(e.getX()>= 640 && e.getX()<= 690 && e.getY() >= 220 && e.getY() <= 240){
                     if(e.getButton() == MouseEvent.BUTTON1){
-                    strike = 0;
+                    // reset
+		    strike = 0;
                     ball = 0;
                     showst = false; 
                     showba = false; 
@@ -685,7 +718,7 @@ public class project1st extends JComponent implements ActionListener {
                         y8 = 500;
                         y9 = 500;
                         
-                        // reset
+                        // reset choices
                         user[0] = 0;
                         user[1] = 0;
                         user[2] = 0;
@@ -694,10 +727,13 @@ public class project1st extends JComponent implements ActionListener {
                 }
                 
                 // new game 
+		// if strike is 3 (= end is true)
                 if(strike == 3){
+		    // if click the new game button
                     if(e.getX()>=600 && e.getX()<=735 && e.getY()>=400&&e.getY()<=450){
                         if(e.getButton()==MouseEvent.BUTTON1){
-                            end = false; 
+                            // return to first page and play
+			    end = false; 
                             strike = 0;
                             ball = 0;
                             showst = true; 
@@ -705,7 +741,8 @@ public class project1st extends JComponent implements ActionListener {
                             out = false; 
                             tries=0;
                             startT = System.currentTimeMillis();
-                            a=a+1;
+                            // number of games
+			    a=a+1;
                             System.out.println("");
                             System.out.println("Game"+ a);
                             System.out.println("");
@@ -732,7 +769,7 @@ public class project1st extends JComponent implements ActionListener {
                         y8 = 500;
                         y9 = 500;
                         
-                        // reset
+                        // reset user/computers matches
                         user[0] = 0;
                         user[1] = 0;
                         user[2] = 0;
@@ -742,9 +779,11 @@ public class project1st extends JComponent implements ActionListener {
                         }
                     }
                 }
+		// if click anywhere except enter button
                 if(e.getButton() == MouseEvent.BUTTON1){
                     if(!(e.getX()>= 680 && e.getX()<= 730 && e.getY()<= 565 && e.getY()>=535)){
-                    lastkey =0;
+                    // lastkey is 0
+			lastkey =0;
                     }
                 }
         
@@ -927,9 +966,11 @@ public class project1st extends JComponent implements ActionListener {
         }
              
                 // clear
+		// if backspace key is pressed when at least one of the digits are not zero
                 if(user[0] != 0 || user[1] != 0 || user[2]!=0){
                     if(keyCode== KeyEvent.VK_BACK_SPACE){
-                        // x
+                        // reset all cards' positions
+			// x
                         x1 = 50;
                         x2 = 120;
                         x3 = 190;
@@ -951,12 +992,12 @@ public class project1st extends JComponent implements ActionListener {
                         y8 = 500;
                         y9 = 500;
                         
-                        // reset
+                        // reset users choices
                         user[0] = 0;
                         user[1] = 0;
                         user[2] = 0;
                         
-                        // strike and balls
+                        // reset strike/ball count
                         strike = 0;
                         ball = 0;
                         out = false; 
@@ -965,7 +1006,9 @@ public class project1st extends JComponent implements ActionListener {
                     }
                 
                 // enter
+		// when all three digits are non-zero
                     if(user[0]!=0&&user[1]!=0&&user[2]!=0){
+			// when enter is pressed 
                         if(keyCode== KeyEvent.VK_ENTER&&lastkey!=1){
                             lastkey=1;
                             strikecount();
@@ -974,29 +1017,41 @@ public class project1st extends JComponent implements ActionListener {
                         // add tries
                         tries = tries + 1;
                         // print out result
+			// when ball or strike are not zero (= if it is not zero)
                         if(ball!=0||strike!=0){
+			    // print out strike/ball count
                             System.out.println(user[0] +""+ user[1]+"" + user[2] + " is " + ball + " ball " + strike + " strike. ");
-                            }else if(ball==0&&strike==0){
+                            }// else if it is out 
+			    else if(ball==0&&strike==0){
+			    // print out 'it is out'
                             System.out.println(user[0] +""+ user[1]+"" + user[2] + " is out.");
                             }
+			// when it is 3 strikes
                         if(strike == 3){
+			    // print out "you win"
                             System.out.println("You win!");
+			    // shows number of tries
                             System.out.println("Tries :" + tries);
                             }
                         }
                 }
+		// if at least one of the digit is zero
                 if(user[0]==0||user[1]==0||user[2]==0){
+		// and enter is pressed
                 if(keyCode== KeyEvent.VK_ENTER){
-                            enter = false;
+                            // enter and out are false
+			    enter = false;
                             out = false;
                         }
                 }
                 
                 
                 // next turn
+		// if strike is not 3
                 if(strike != 3){
+		// and right key is pressed
                 if(keyCode== KeyEvent.VK_RIGHT){
-                    // reset 
+                    // reset all the conditions
                     strike = 0;
                     ball = 0;
                     showst = false; 
@@ -1025,7 +1080,7 @@ public class project1st extends JComponent implements ActionListener {
                         y8 = 500;
                         y9 = 500;
                         
-                        // reset
+                        // reset user's choices
                         user[0] = 0;
                         user[1] = 0;
                         user[2] = 0;
@@ -1042,7 +1097,7 @@ public class project1st extends JComponent implements ActionListener {
         @Override
         public void keyReleased(KeyEvent e) {
             int keyCode = e.getKeyCode();
-            
+            // if enter is released, enter is false.
             if(keyCode== KeyEvent.VK_ENTER){
                             enter = false;
                         }
