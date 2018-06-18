@@ -79,7 +79,7 @@ public class project1st extends JComponent implements ActionListener {
     // boolean 
     // enter
     boolean enter = false;
-    //show strike/ball
+    // show strike/ball
     boolean showst = true;
     boolean showba = true;
     // end game
@@ -373,7 +373,7 @@ public class project1st extends JComponent implements ActionListener {
 	    // show last page
             end = true;
         }
-        // show out if it is out
+        // show 'out' if it is out
         if(strike == 0&& ball == 0 && enter == true){
             out = true;
            
@@ -391,8 +391,8 @@ public class project1st extends JComponent implements ActionListener {
 	    if(computer[1] == user[1]){
                 strike = strike + 1;
             }
-            	// if third digit is strike
-		if(computer[2] == user[2]){
+            // if third digit is strike
+            if(computer[2] == user[2]){
                 strike = strike + 1;
             }
     }
@@ -692,8 +692,6 @@ public class project1st extends JComponent implements ActionListener {
                     // reset
 		    strike = 0;
                     ball = 0;
-                    showst = false; 
-                    showba = false; 
                     out = false; 
                     
                     // x
@@ -781,7 +779,7 @@ public class project1st extends JComponent implements ActionListener {
                 }
 		// if click anywhere except enter button
                 if(e.getButton() == MouseEvent.BUTTON1){
-                    if(!(e.getX()>= 680 && e.getX()<= 730 && e.getY()<= 565 && e.getY()>=535)){
+                    if((e.getX()>= 640 && e.getX()<= 690 && e.getY() >= 220 && e.getY() <= 240)||(e.getX()>= 680 && e.getX()<= 730 && e.getY()<= 530 && e.getY()>=500)){
                     // lastkey is 0
 			lastkey =0;
                     }
@@ -961,9 +959,8 @@ public class project1st extends JComponent implements ActionListener {
                         x9 = 260;
                         y9 = 260;
                         user[2] = 9;
-                    
+                    }
                 }
-        }
              
                 // clear
 		// if backspace key is pressed when at least one of the digits are not zero
@@ -1000,8 +997,7 @@ public class project1st extends JComponent implements ActionListener {
                         // reset strike/ball count
                         strike = 0;
                         ball = 0;
-                        out = false; 
-                        
+                        out = false;     
                     }
                     }
                 
@@ -1035,6 +1031,7 @@ public class project1st extends JComponent implements ActionListener {
                             }
                         }
                 }
+                    
 		// if at least one of the digit is zero
                 if(user[0]==0||user[1]==0||user[2]==0){
 		// and enter is pressed
@@ -1045,7 +1042,6 @@ public class project1st extends JComponent implements ActionListener {
                         }
                 }
                 
-                
                 // next turn
 		// if strike is not 3
                 if(strike != 3){
@@ -1054,8 +1050,6 @@ public class project1st extends JComponent implements ActionListener {
                     // reset all the conditions
                     strike = 0;
                     ball = 0;
-                    showst = false; 
-                    showba = false; 
                     out = false; 
                     
                     // x
@@ -1088,7 +1082,7 @@ public class project1st extends JComponent implements ActionListener {
                    
                     }
                 }
-                if(keyCode!= KeyEvent.VK_ENTER){
+                if((keyCode == KeyEvent.VK_BACK_SPACE)||(keyCode == KeyEvent.VK_RIGHT)){
                     lastkey=0;
                 }
         }
